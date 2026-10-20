@@ -28,7 +28,7 @@ class DeviceWorkflowTest {
     private val keepAwake = object : Application.ActivityLifecycleCallbacks {
         override fun onActivityCreated(activity: Activity, state: Bundle?) { activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) }
         override fun onActivityStarted(activity: Activity) {}
-        override fun onActivityResumed(activity: Activity) {}
+        override fun onActivityResumed(activity: Activity) { activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) }
         override fun onActivityPaused(activity: Activity) {}
         override fun onActivityStopped(activity: Activity) {}
         override fun onActivitySaveInstanceState(activity: Activity, state: Bundle) {}
@@ -84,9 +84,11 @@ class DeviceWorkflowTest {
         app.preferences.save(Settings(onboarded=true))
         dao.savePolicy(GoalPolicy(weekOf(LocalDate.now()).toEpochDay(),4))
         val device=UiDevice.getInstance(instrumentation)
-        context.startActivity(Intent(context,MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
-        assertTrue(device.wait(Until.hasObject(By.text("A little reading,\na little more you.")),20000))
         val output=File(context.getExternalFilesDir(null),"qa-screenshots").apply { mkdirs() }
+        context.startActivity(Intent(context,MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
+        val homeShown=device.wait(Until.hasObject(By.text("A little reading,\na little more you.")),20000)
+        if(!homeShown) { device.takeScreenshot(File(output,"failure-home.png")); device.dumpWindowHierarchy(File(output,"failure-home.xml")) }
+        assertTrue("Home visible; foreground=${device.currentPackageName}; awake=${context.getSystemService(android.os.PowerManager::class.java).isInteractive}",homeShown)
         fun capture(name: String) { device.waitForIdle(); android.os.SystemClock.sleep(400); device.takeScreenshot(File(output,name)) }
         capture("01-home.png")
         fun clickText(text: String) { val target=device.wait(Until.findObject(By.text(java.util.regex.Pattern.compile("\\s*"+java.util.regex.Pattern.quote(text)+"\\s*"))),10000); assertNotNull("Missing $text",target); target.click(); device.waitForIdle() }
