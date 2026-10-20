@@ -24,7 +24,7 @@ The Amazon Console draft was created and saved, not submitted or published.
 
 1. Publisher approved ages 16 and above; Amazon target audience saved as 16–17 and 18+ (younger groups excluded).
 2. APK upload and compatible tablet targeting are complete. Publisher-owned key custody and portable backup instructions are in `RELEASE-SIGNING.md`; the private key/password were not uploaded or committed. No production APK was installed over the existing debug-signed tablet app.
-3. Export-compliance certification is unchecked and requires the publisher's legal determination/confirmation, including encryption controls.
+3. Publisher explicitly confirmed the export-compliance declaration, including encryption controls, on 20 October 2026. The Amazon checkbox was selected and the Console displayed "Last saved". No final submission was authorized or performed in that confirmation.
 4. Complete the production gaps in `RELEASE-STATUS.md`, including privacy/legal review and native/localized visual QA. Localized screenshots and optional promotional artwork/video are not uploaded.
 
-The Submit App control is disabled. No export certification or final submission was accepted.
+The export-compliance declaration is checked with publisher confirmation. No final submission was performed; the app remains a draft.
