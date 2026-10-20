@@ -104,6 +104,7 @@
     {
       "id": "08",
       "headline": "Reading Statistics & Progress",
+      "uploadStatus": "excluded: source capture shows Goals rather than Insights; recapture required",
       "support": "Discover your reading patterns over time.",
       "screen": "Insights",
       "productionStatus": "composed from actual capture",
