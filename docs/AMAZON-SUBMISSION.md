@@ -1,6 +1,6 @@
 # Amazon submission draft — 20 October 2026
 
-The Amazon Console draft was created and saved, not submitted or published.
+The publisher explicitly requested final submission on 20 October 2026. Amazon confirmed **Submitted** and **App Submission Successful** on that date. The app is awaiting review, not confirmed approved or live. The Console estimates 25 October 2026 at 08:30 AM PDT (15:30 Europe/London); this is an estimate, not a guarantee.
 
 - App ID: `amzn1.devportal.mobileapp.477419a9726d4d4fb4775f40b25f81ce`
 - Release ID: `amzn1.devportal.apprelease.47351ee029e04e2ca79302e232fb20f0`
@@ -15,7 +15,7 @@ The Amazon Console draft was created and saved, not submitted or published.
 - Description, bullets and keywords use concrete feature names, with no ranking promises, fake ratings or unimplemented feature claims.
 - Privacy questionnaire saved for review: optional in-app search and system speech transfer to third parties for app functionality; publisher does not collect those records. No account creation. Privacy/deletion instructions point to the published privacy page.
 - Content questionnaire marked Complete: no bundled violence, drugs, nudity, sex, intolerance, profanity, advertisements, gambling or location detection. Academic attenuation: no. User-generated content: yes (local notes and imported documents); there is no user-to-user messaging.
-- Practical testing instructions are prepared in `AMAZON-REVIEWER-INSTRUCTIONS.txt`; no credentials are required. Amazon's final review form did not retain that optional field across navigation, so it must be populated again at final submission.
+- Practical testing instructions from `AMAZON-REVIEWER-INSTRUCTIONS.txt` were populated again immediately before final submission; no credentials are required. The final review form does not retain this optional field across navigation before submission.
 - Production-signed `reading-habit-coach-0.2.0-release.apk` (version code 2) uploaded and accepted by Amazon validation. See `PRODUCTION-APK.json` for its verified digest, signer and local checks. Amazon binary ID: `MV3T8AZKQZCR5`.
 - Amazon DRM wrapping: No (free, offline app with no active purchases or DRM SDK).
 - Device selection saved: 12 compatible Fire tablets; zero Fire TV or automotive devices. The selected tablet list includes the tested Fire HD 10 (2021) KFTRWI. The Console excludes older unsupported models and newer Alexa/Amazon Kids tablets. This build targets API 35; Fire OS 16 requires target API 36, so support for those newer devices needs a future target-36 build and platform testing. Source: https://developer.amazon.com/docs/app-submission/device-filtering-and-compatibility.html#fire-os-and-android-api-levels
@@ -27,4 +27,4 @@ The Amazon Console draft was created and saved, not submitted or published.
 3. Publisher explicitly confirmed the export-compliance declaration, including encryption controls, on 20 October 2026. The Amazon checkbox was selected and the Console displayed "Last saved". No final submission was authorized or performed in that confirmation.
 4. Complete the production gaps in `RELEASE-STATUS.md`, including privacy/legal review and native/localized visual QA. Localized screenshots and optional promotional artwork/video are not uploaded.
 
-The export-compliance declaration is checked with publisher confirmation. No final submission was performed; the app remains a draft.
+The export-compliance declaration was checked with publisher confirmation. Final submission was explicitly authorized and completed. The Console's submission history states "App Submission Successful" and shows no new updates requiring attention. Approval and publication remain Amazon's decision.
