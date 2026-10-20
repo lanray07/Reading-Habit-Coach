@@ -2,7 +2,7 @@ name: Verify Android app
 on:
   push:
     branches: [main]
-    paths: ['app/**', 'gradle/**', '*.gradle.kts', 'gradle.properties', 'gradlew', '.github/workflows/android.yml']
+    paths: ['app/**', 'localization/**', 'tools/*local*.mjs', 'tools/translate-locales.py', 'gradle/**', '*.gradle.kts', 'gradle.properties', 'gradlew', '.github/workflows/android.yml']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -21,6 +21,11 @@ jobs:
           packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
           log-accepted-android-sdk-licenses: false
       - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/build-locales.mjs && node tools/build-store-locales.mjs
+      - run: git diff --exit-code -- app/src/main/res app/src/main/java/com/readinghabitcoach/app/i18n/SourceMessages.kt store-listings
       - run: ./gradlew :app:assembleDebug :app:testDebugUnitTest :app:lintDebug --console=plain
       - uses: actions/upload-artifact@v4
         with:

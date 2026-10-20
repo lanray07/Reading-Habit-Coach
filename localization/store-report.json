@@ -1,0 +1,84 @@
+{
+  "sourceUrl": "https://developer.amazon.com/docs/app-submission/distribute-your-app-internationally.html",
+  "humanReviewRequired": true,
+  "locales": {
+    "en-AU": {
+      "fieldsComplete": true,
+      "shortBytes": 128,
+      "longCharacters": 1879,
+      "bulletCount": 5
+    },
+    "en-IN": {
+      "fieldsComplete": true,
+      "shortBytes": 128,
+      "longCharacters": 1879,
+      "bulletCount": 5
+    },
+    "en-US": {
+      "fieldsComplete": true,
+      "shortBytes": 128,
+      "longCharacters": 1879,
+      "bulletCount": 5
+    },
+    "nl": {
+      "fieldsComplete": true,
+      "shortBytes": 144,
+      "longCharacters": 2238,
+      "bulletCount": 5
+    },
+    "fr": {
+      "fieldsComplete": true,
+      "shortBytes": 168,
+      "longCharacters": 2565,
+      "bulletCount": 5
+    },
+    "de": {
+      "fieldsComplete": true,
+      "shortBytes": 161,
+      "longCharacters": 2286,
+      "bulletCount": 5
+    },
+    "it": {
+      "fieldsComplete": true,
+      "shortBytes": 155,
+      "longCharacters": 2297,
+      "bulletCount": 5
+    },
+    "ja": {
+      "fieldsComplete": true,
+      "shortBytes": 186,
+      "longCharacters": 1091,
+      "bulletCount": 5
+    },
+    "pl": {
+      "fieldsComplete": true,
+      "shortBytes": 148,
+      "longCharacters": 2247,
+      "bulletCount": 5
+    },
+    "pt-BR": {
+      "fieldsComplete": true,
+      "shortBytes": 156,
+      "longCharacters": 2207,
+      "bulletCount": 5
+    },
+    "pt-PT": {
+      "fieldsComplete": true,
+      "shortBytes": 168,
+      "longCharacters": 2257,
+      "bulletCount": 5
+    },
+    "es": {
+      "fieldsComplete": true,
+      "shortBytes": 161,
+      "longCharacters": 2354,
+      "bulletCount": 5
+    },
+    "sv": {
+      "fieldsComplete": true,
+      "shortBytes": 123,
+      "longCharacters": 2009,
+      "bulletCount": 5
+    }
+  }
+}

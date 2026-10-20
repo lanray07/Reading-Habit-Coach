@@ -1,0 +1,19 @@
+{
+  "title": "Reading Habit Coach – Localizzatore di libri",
+  "shortDescription": "Tieni traccia di libri, tempo di lettura e pagine. Tieni un diario privato e crea coerenza con obiettivi settimanali flessibili. Nessun account necessario.",
+  "intro": "Leggi in modo più coerente. Ricorda ciò che conta.",
+  "library": "Reading Habit Coach dona ai tuoi libri, momenti di lettura e idee una casa tranquilla e privata. Organizza libri fisici, audiolibri, ebook di biblioteca e documenti personali compatibili. Conserva scaffali, tag, progressi e valutazioni personali.",
+  "sessions": "Avvia, metti in pausa e termina una sessione di lettura o la lettura del registro già eseguita. Registra i minuti e l'avanzamento della pagina. Il tempo dell'audiolibro non viene mai convertito in conteggi di pagine inventati.",
+  "goals": "Scegli i minuti di lettura giornalieri e i giorni di lettura settimanali. La coerenza confermata si basa sulle settimane completate, lasciando spazio ai giorni liberi. La tua cronologia di lettura rimane con te.",
+  "journal": "Salva idee, citazioni, domande e riflessioni in un diario ricercabile. Collega le note ai libri, aggiungi tag e preferiti ed esporta le tue note.",
+  "reader": "Leggi PDF personali compatibili ed EPUB senza DRM. I controlli EPUB includono dimensione del testo, spaziatura, temi, capitoli, segnalibri, posizioni salvate, ricerca di testo e lettura ad alta voce del testo selezionato o del capitolo. La visualizzazione PDF include pagine, zoom e segnalibri. La ricerca di testo PDF, l'OCR, l'evidenziazione del testo e la lettura ad alta voce dei PDF non sono disponibili. I libri Kindle protetti e l'integrazione della libreria Kindle non sono supportati.",
+  "voice": "Utilizza comandi di esempio localizzati tramite tocco o testo. Il riconoscimento vocale e la lettura ad alta voce offline dipendono dai servizi di sistema installati. Il riconoscimento potrebbe richiedere Internet. I tuoi libri e i tuoi appunti non vengono mai tradotti automaticamente.",
+  "privacy": "Nessun account o pubblicità. Libri, sessioni e appunti vengono archiviati localmente. La ricerca facoltativa dei metadati invia la tua query a Open Library. Esporta record JSON, CSV di sessione o note di diario. Sono disponibili backup locali protetti da passphrase opzionali; sono esclusi i file di documenti importati.",
+  "preview": "Build ad accesso anticipato. Il pagamento premium e il backup su cloud non sono configurati. Non vengono addebitati costi in-app. Richiede l'API Android 26 o successiva. Le traduzioni sono incluse; la revisione da parte di un madrelingua rimane in sospeso. Le funzionalità vocali del dispositivo variano.",
+  "bullet1": "Organizza i tuoi libri con scaffali privati, avanzamento, tag e valutazioni personali.",
+  "bullet2": "Tieni traccia delle sessioni di lettura e dei registri manuali con il tempo misurato e l'avanzamento della pagina.",
+  "bullet3": "Costruisci una routine con obiettivi giornalieri minuti e flessibili per i giorni di lettura settimanale.",
+  "bullet4": "Mantieni idee, citazioni e riflessioni ricercabili collegate ai tuoi libri.",
+  "bullet5": "Leggi i documenti personali supportati ed esporta record di letture private.",
+  "keywords": "tracker di lettura, tracker di libri, diario di lettura, note di libri, timer di lettura, obiettivi di lettura, lettore EPUB"
+}

@@ -1,6 +1,6 @@
 {
   "name": "reading-habit-coach-tooling",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,11 @@
     "site:verify": "node tools/verify-website.mjs",
     "assets:render": "node tools/render-store-assets.mjs",
     "localize:report": "node tools/localize.mjs",
-    "localize:extract": "node tools/extract-strings.mjs"
+    "localize:extract": "node tools/extract-localization.mjs",
+    "localize:build": "node tools/build-locales.mjs",
+    "localize:store": "node tools/build-store-locales.mjs"
   },
-  "devDependencies": { "playwright": "1.58.2" }
+  "devDependencies": {
+    "playwright": "1.58.2"
+  }
 }

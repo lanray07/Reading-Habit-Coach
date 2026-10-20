@@ -1,5 +1,7 @@
 package com.readinghabitcoach.app.reminders
 
+import com.readinghabitcoach.app.i18n.L10n
+
 import android.Manifest
 import android.app.*
 import android.content.*
@@ -19,11 +21,11 @@ class ReadingReminder(context: Context, params: WorkerParameters) : CoroutineWor
         val manager = applicationContext.getSystemService(NotificationManager::class.java)
         if (Build.VERSION.SDK_INT >= 33 && applicationContext.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) return Result.success()
         if (!manager.areNotificationsEnabled()) return Result.success()
-        manager.createNotificationChannel(NotificationChannel("reading", "Gentle reading reminders", NotificationManager.IMPORTANCE_DEFAULT))
+        manager.createNotificationChannel(NotificationChannel("reading", L10n.text(R.string.msg_c9f45b7a2697), NotificationManager.IMPORTANCE_DEFAULT))
         val open = PendingIntent.getActivity(applicationContext, 0, Intent(applicationContext, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         manager.notify(100, NotificationCompat.Builder(applicationContext, "reading").setSmallIcon(R.drawable.ic_book)
-            .setContentTitle("A few pages, whenever you’re ready")
-            .setContentText("Your book is ready whenever you have a few minutes.").setContentIntent(open).setAutoCancel(true).build())
+            .setContentTitle(L10n.text(R.string.msg_14f4b437cbaf))
+            .setContentText(L10n.text(R.string.msg_db04ad4695d7)).setContentIntent(open).setAutoCancel(true).build())
         return Result.success()
     }
     companion object {

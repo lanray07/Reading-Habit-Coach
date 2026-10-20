@@ -11,3 +11,5 @@ screenshots/*.log
 .qa/
 node_modules/
 screenshots/current-fire.png
+localization/candidate-list.txt
+localization/source-candidates.json

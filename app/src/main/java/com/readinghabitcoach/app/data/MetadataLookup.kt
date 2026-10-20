@@ -1,5 +1,8 @@
 package com.readinghabitcoach.app.data
 
+import com.readinghabitcoach.app.i18n.L10n
+import com.readinghabitcoach.app.R
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -15,7 +18,7 @@ class MetadataLookup {
         try {
             connection.connectTimeout = 10_000; connection.readTimeout = 10_000
             connection.setRequestProperty("User-Agent", "ReadingHabitCoach/0.1 (personal book metadata lookup)")
-            require(connection.responseCode == 200) { "Book search is unavailable. You can still add books manually." }
+            require(connection.responseCode == 200) { L10n.text(R.string.msg_5be34b747616) }
             val data = connection.inputStream.use { it.readBytesLimited(1024 * 1024) }.toString(Charsets.UTF_8)
             val docs = JSONObject(data).getJSONArray("docs")
             (0 until docs.length()).map { i -> val d = docs.getJSONObject(i); Book(title = d.getString("title"), author = d.optJSONArray("author_name")?.optString(0) ?: "", isbn = d.optJSONArray("isbn")?.optString(0) ?: "", totalPages = d.optInt("number_of_pages_median").coerceAtLeast(0), colour = d.getString("title").hashCode()) }

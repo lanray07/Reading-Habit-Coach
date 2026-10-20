@@ -1,5 +1,8 @@
 package com.readinghabitcoach.app.data
 
+import com.readinghabitcoach.app.i18n.L10n
+import com.readinghabitcoach.app.R
+
 import android.content.Context
 import android.net.Uri
 import android.graphics.Paint
@@ -22,7 +25,7 @@ class DataTransfer(private val context: Context, private val db: CoachDatabase) 
     }
     suspend fun markdown(): String {
         val books = dao.allBooks().associateBy { it.id }
-        return "# My reading journal\n\n" + dao.allNotes().joinToString("\n\n---\n\n") { n -> "## ${n.type} — ${books[n.bookId]?.title ?: "Journal"}\n\n${n.body}\n\n${n.location}\n\nTags: ${n.tags}" }
+        return L10n.text(R.string.msg_a48c4031e2c0) + dao.allNotes().joinToString("\n\n---\n\n") { n -> "## ${L10n.label(n.type)} — ${books[n.bookId]?.title ?: L10n.label("Journal")}\n\n${n.body}\n\n${n.location}\n\n${L10n.label("Tags")}: ${n.tags}\n" }
     }
     suspend fun csv(): String {
         fun cell(s: String): String { val safe = if (s.firstOrNull() in listOf('=', '+', '-', '@', '\t', '\r')) "'$s" else s; return "\"${safe.replace("\"", "\"\"")}\"" }
@@ -40,7 +43,7 @@ class DataTransfer(private val context: Context, private val db: CoachDatabase) 
                     chunk.forEachIndexed { i, line -> page.canvas.drawText(line, 36f, 48f + i * 17, paint) }; pdf.finishPage(page) }
                 pdf.writeTo(out); pdf.close()
             } else out.write((when (kind) { "csv" -> csv(); "md", "txt" -> markdown(); else -> json() }).toByteArray(Charsets.UTF_8))
-        } ?: error("The selected destination could not be written.")
+        } ?: error(L10n.text(R.string.msg_fa748c1db9bf))
     }
     suspend fun importJson(uri: Uri) = withContext(Dispatchers.IO) {
         val bytes = context.contentResolver.openInputStream(uri)?.use { it.readBytesLimited(10 * 1024 * 1024) } ?: error("Cannot read backup.")
@@ -48,27 +51,27 @@ class DataTransfer(private val context: Context, private val db: CoachDatabase) 
     }
     suspend fun writeEncrypted(uri: Uri, password: CharArray) = withContext(Dispatchers.IO) {
         try { val plain=json().toByteArray(Charsets.UTF_8)
-            try { val encrypted=BackupCipher.encrypt(plain,password); context.contentResolver.openOutputStream(uri,"wt")?.use { it.write(encrypted) } ?: error("Cannot write backup.") }
+            try { val encrypted=BackupCipher.encrypt(plain,password); context.contentResolver.openOutputStream(uri,"wt")?.use { it.write(encrypted) } ?: error(L10n.text(R.string.msg_dd70b9c8c47e)) }
             finally { plain.fill(0) }
         } finally { password.fill('\u0000') }
     }
     suspend fun importEncrypted(uri: Uri, password: CharArray) = withContext(Dispatchers.IO) {
-        try { val envelope=context.contentResolver.openInputStream(uri)?.use { it.readBytesLimited(11*1024*1024) } ?: error("Cannot read backup.")
+        try { val envelope=context.contentResolver.openInputStream(uri)?.use { it.readBytesLimited(11*1024*1024) } ?: error(L10n.text(R.string.msg_6d2f9e4b5199))
             val plain=BackupCipher.decrypt(envelope,password)
             try { importBytes(plain) } finally { plain.fill(0) }
         } finally { password.fill('\u0000') }
     }
     private suspend fun importBytes(bytes: ByteArray) {
-        val root = JSONObject(bytes.toString(Charsets.UTF_8)); require(root.getInt("schemaVersion") == 1) { "Unsupported backup version." }
+        val root = JSONObject(bytes.toString(Charsets.UTF_8)); require(root.getInt("schemaVersion") == 1) { L10n.text(R.string.msg_ffc7052b1c01) }
         fun array(key: String): List<JSONObject> = root.optJSONArray(key)?.let { a -> require(a.length() <= 50_000); (0 until a.length()).map { a.getJSONObject(it) } } ?: emptyList()
         val books = array("books").map { b -> Book(id = b.getString("id"), title = b.getString("title").take(1000), author = b.optString("author"), format = b.getString("format"), shelf = b.getString("shelf"), totalPages = b.optInt("totalPages"), page = b.optInt("page"), genre = b.optString("genre"), tags = b.optString("tags"), rating = b.optInt("rating"), isbn = b.optString("isbn"), addedAt = b.optLong("addedAt"), finishedAt = if (b.has("finishedAt") && !b.isNull("finishedAt")) b.getLong("finishedAt") else null, colour = b.optInt("colour")).also { require(it.title.isNotBlank() && it.format in formats && it.shelf in shelves && it.page >= 0 && it.totalPages >= 0 && it.rating in 0..5) } }
         val ids = (books.map { it.id } + dao.allBooks().map { it.id }).toSet()
         val sessions = array("sessions").map { s -> ReadingSession(s.getString("id"), s.getString("bookId"), s.getLong("startedAt"), s.getLong("endedAt"), s.getLong("durationMs"), s.optInt("startPage"), s.optInt("endPage"), s.getString("zone"), s.optString("note"), s.optString("mood"), s.optString("spans"),s.optBoolean("manual")).also { require(it.bookId in ids && it.durationMs in 0..31_536_000_000L && it.startedAt >= 0 && it.endedAt <= System.currentTimeMillis()+86_400_000L && it.endedAt >= it.startedAt && it.startPage >= 0 && it.endPage >= it.startPage && (!it.manual || (it.durationMs <= 86_400_000L && it.spans.isBlank()))); ZoneId.of(it.zone)
             val spans = com.readinghabitcoach.app.domain.decodeSpans(it.spans)
-            require(it.spans.isBlank() || (spans.isNotEmpty() && spans.sumOf { s -> s.duration } == it.durationMs && spans.all { s -> s.start >= it.startedAt && s.end <= it.endedAt } && spans.zipWithNext().all { (a,b) -> a.end <= b.start })) { "Invalid session time intervals." }
+            require(it.spans.isBlank() || (spans.isNotEmpty() && spans.sumOf { s -> s.duration } == it.durationMs && spans.all { s -> s.start >= it.startedAt && s.end <= it.endedAt } && spans.zipWithNext().all { (a,b) -> a.end <= b.start })) { L10n.text(R.string.msg_c789a7d68d78) }
         } }
         val notes = array("notes").map { n -> JournalNote(n.getString("id"), n.optString("bookId"), n.optString("type", "Idea"), n.getString("body"), n.optString("location"), n.optString("tags"), n.optBoolean("favourite"), n.getLong("createdAt"), n.getLong("updatedAt")).also { require(it.body.isNotBlank() && (it.bookId.isBlank() || it.bookId in ids)) } }
-        val policies = array("policies").map { p -> GoalPolicy(p.getLong("effectiveWeek"), p.getInt("daysPerWeek"), p.optBoolean("paused")).also { require(it.daysPerWeek in 1..7 && it.effectiveWeek in 0..java.time.LocalDate.now().plusYears(10).toEpochDay()) { "Invalid goal policy date or target." } } }
+        val policies = array("policies").map { p -> GoalPolicy(p.getLong("effectiveWeek"), p.getInt("daysPerWeek"), p.optBoolean("paused")).also { require(it.daysPerWeek in 1..7 && it.effectiveWeek in 0..java.time.LocalDate.now().plusYears(10).toEpochDay()) { L10n.text(R.string.msg_7d14277ab281) } } }
         db.withTransaction {
             // Merge by ID; document references from existing local books remain private and valid.
             books.forEach { b -> val old = dao.book(b.id); dao.saveBook(if (old != null) b.copy(document = old.document, readerPosition = old.readerPosition) else b) }
@@ -78,6 +81,6 @@ class DataTransfer(private val context: Context, private val db: CoachDatabase) 
 }
 fun java.io.InputStream.readBytesLimited(max: Int): ByteArray {
     val out = java.io.ByteArrayOutputStream(); val buffer = ByteArray(8192); var size = 0
-    while (true) { val n = read(buffer); if (n < 0) break; size += n; require(size <= max) { "The file is too large." }; out.write(buffer, 0, n) }
+    while (true) { val n = read(buffer); if (n < 0) break; size += n; require(size <= max) { L10n.text(R.string.msg_b56ee8d2df5d) }; out.write(buffer, 0, n) }
     return out.toByteArray()
 }

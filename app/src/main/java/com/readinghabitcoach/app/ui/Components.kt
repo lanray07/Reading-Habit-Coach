@@ -1,5 +1,8 @@
 package com.readinghabitcoach.app.ui
 
+import com.readinghabitcoach.app.i18n.L10n
+import com.readinghabitcoach.app.R
+
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -77,10 +80,10 @@ private val coverColours = listOf(Color(0xFF466354), Color(0xFF9B694D), Color(0x
 }
 @Composable fun ChoiceRow(values: List<String>, selected: String, onSelect: (String) -> Unit) {
     Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        values.forEach { value -> FilterChip(selected == value, { onSelect(value) }, label = { Text(value) }, modifier = Modifier.heightIn(min = 48.dp)) }
+        values.forEach { value -> FilterChip(selected == value, { onSelect(value) }, label = { Text(com.readinghabitcoach.app.i18n.L10n.label(value)) }, modifier = Modifier.heightIn(min = 48.dp)) }
     }
 }
-fun durationLabel(ms: Long): String { val minutes = ms / 60_000; return if (minutes >= 60) "${minutes / 60}h ${minutes % 60}m" else "${minutes} min" }
+fun durationLabel(ms: Long): String { val minutes = ms / 60_000; return if (minutes >= 60) L10n.text(R.string.msg_279d04514bff, minutes / 60, minutes % 60) else L10n.quantity("minute_count", minutes.toInt()) }
 fun clockLabel(ms: Long): String { val s = ms / 1000; return String.format(Locale.getDefault(), "%02d:%02d:%02d", s / 3600, (s / 60) % 60, s % 60) }
 @Composable fun Field(value: String, change: (String) -> Unit, label: String, modifier: Modifier = Modifier, single: Boolean = true) {
     OutlinedTextField(value, change, label = { Text(label) }, modifier = modifier.fillMaxWidth(), singleLine = single, shape = RoundedCornerShape(10.dp))

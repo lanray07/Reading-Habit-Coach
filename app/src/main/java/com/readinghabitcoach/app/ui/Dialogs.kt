@@ -1,5 +1,8 @@
 package com.readinghabitcoach.app.ui
 
+import com.readinghabitcoach.app.i18n.L10n
+import com.readinghabitcoach.app.R
+
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -22,7 +25,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
                 Column(Modifier.weight(1f, fill = false).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp), content = content)
                 Spacer(Modifier.height(20.dp))
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                    TextButton(dismiss) { Text("Cancel") }; Spacer(Modifier.width(8.dp)); Primary("Save", Icons.Outlined.Check, enabled, save)
+                    TextButton(dismiss) { Text(L10n.text(R.string.msg_19766ed6ccb2)) }; Spacer(Modifier.width(8.dp)); Primary(L10n.text(R.string.msg_1509f561f241), Icons.Outlined.Check, enabled, save)
                 }
             }
         }
@@ -35,60 +38,60 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
     var genre by remember { mutableStateOf(existing?.genre ?: "") }; var tags by remember { mutableStateOf(existing?.tags ?: "") }; var isbn by remember { mutableStateOf(existing?.isbn ?: "") }
     var rating by remember { mutableIntStateOf(existing?.rating ?: 0) }
     val valid = title.isNotBlank() && (page.toIntOrNull() ?: -1) >= 0 && (total.isBlank() || (total.toIntOrNull() ?: -1) >= (page.toIntOrNull() ?: 0))
-    EditorDialog(if (existing == null) "A new book for your shelf" else "Edit book", dismiss, {
+    EditorDialog(if (existing == null) L10n.text(R.string.msg_895e9de46693) else L10n.text(R.string.msg_a8b2c285a791), dismiss, {
         val base = existing ?: Book(title = title.trim(), colour = title.hashCode())
         save(base.copy(title = title.trim(), author = author.trim(), format = format, shelf = shelf, totalPages = total.toIntOrNull() ?: 0,
             page = page.toIntOrNull() ?: 0, genre = genre, tags = tags, isbn = isbn, rating = rating,
             finishedAt = if (shelf == "Finished") base.finishedAt ?: System.currentTimeMillis() else null))
     }, valid) {
-        Field(title, { title = it }, "Book title *"); Field(author, { author = it }, "Author")
-        Text("Format", style = MaterialTheme.typography.labelLarge); ChoiceRow(formats, format) { format = it }
-        Text("Shelf", style = MaterialTheme.typography.labelLarge); ChoiceRow(shelves, shelf) { shelf = it }
+        Field(title, { title = it }, L10n.text(R.string.msg_0b3db5df8617)); Field(author, { author = it }, L10n.text(R.string.msg_d95082a2ee57))
+        Text(L10n.text(R.string.msg_2f343666aaa8), style = MaterialTheme.typography.labelLarge); ChoiceRow(formats, format) { format = it }
+        Text(L10n.text(R.string.msg_338c8ac89226), style = MaterialTheme.typography.labelLarge); ChoiceRow(shelves, shelf) { shelf = it }
         if (format != "Audiobook") Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Field(total, { total = it.filter(Char::isDigit).take(6) }, "Total pages", Modifier.weight(1f))
-            Field(page, { page = it.filter(Char::isDigit).take(6) }, "Current page", Modifier.weight(1f))
+            Field(total, { total = it.filter(Char::isDigit).take(6) }, L10n.text(R.string.msg_1dcb6d407793), Modifier.weight(1f))
+            Field(page, { page = it.filter(Char::isDigit).take(6) }, L10n.text(R.string.msg_de2574e53cca), Modifier.weight(1f))
         }
-        Field(genre, { genre = it }, "Genre"); Field(tags, { tags = it }, "Tags, separated by commas"); Field(isbn, { isbn = it }, "ISBN (optional)")
-        Text("Your rating (optional)"); Row { (1..5).forEach { n -> IconButton({ rating = if (rating == n) 0 else n }) { Icon(if (n <= rating) Icons.Outlined.Star else Icons.Outlined.StarOutline, "$n stars", tint = MaterialTheme.colorScheme.secondary) } } }
+        Field(genre, { genre = it }, L10n.text(R.string.msg_6da795a8664f)); Field(tags, { tags = it }, L10n.text(R.string.msg_ae5f75d7948c)); Field(isbn, { isbn = it }, L10n.text(R.string.msg_f25becf1d2ef))
+        Text(L10n.text(R.string.msg_5afd4a17d30a)); Row { (1..5).forEach { n -> IconButton({ rating = if (rating == n) 0 else n }) { Icon(if (n <= rating) Icons.Outlined.Star else Icons.Outlined.StarOutline, L10n.quantity("star_count", n), tint = MaterialTheme.colorScheme.secondary) } } }
     }
 }
 @Composable fun BookDetails(book: Book, sessions: List<ReadingSession>, dismiss: () -> Unit, edit: () -> Unit, start: () -> Unit, reader: () -> Unit, addNote: () -> Unit) {
     Dialog(dismiss) { Paper(Modifier.widthIn(max = 600.dp)) {
         Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) { BookCover(book, 110, 166); Column(Modifier.weight(1f)) {
             Text(book.title, style = MaterialTheme.typography.headlineMedium); Spacer(Modifier.height(8.dp)); Text(book.author)
-            Spacer(Modifier.height(8.dp)); Text("${book.shelf} · ${book.format}", color = MaterialTheme.colorScheme.secondary)
-            if (book.rating > 0) Text("${book.rating} / 5 · Your rating")
+            Spacer(Modifier.height(8.dp)); Text("${L10n.label(book.shelf)} · ${L10n.label(book.format)}", color = MaterialTheme.colorScheme.secondary)
+            if (book.rating > 0) Text(L10n.text(R.string.msg_ba730ad23fd1, book.rating))
         } }
-        Spacer(Modifier.height(20.dp)); Progress(if (book.totalPages > 0) book.page.toFloat() / book.totalPages else 0f, if (book.totalPages > 0) "${book.page} of ${book.totalPages} pages" else "Progress recorded with your reading sessions")
-        Spacer(Modifier.height(14.dp)); Text("${sessions.size} sessions · ${durationLabel(sessions.sumOf { it.durationMs })}", color = MaterialTheme.colorScheme.onSurfaceVariant)
-        if (book.tags.isNotBlank()) Text("Tags · ${book.tags}")
-        Spacer(Modifier.height(20.dp)); Primary("Start Reading Session", onClick = start)
-        if (book.document.isNotBlank()) TextButton(reader) { Icon(Icons.Outlined.MenuBook, null); Text(" Open document") }
-        Row { TextButton(edit) { Text("Edit details") }; TextButton(addNote) { Text("Add a note") }; TextButton(dismiss) { Text("Close") } }
+        Spacer(Modifier.height(20.dp)); Progress(if (book.totalPages > 0) book.page.toFloat() / book.totalPages else 0f, if (book.totalPages > 0) L10n.text(R.string.msg_6e1fde9cf3e0, book.page, book.totalPages) else L10n.text(R.string.msg_0bcf1b95ab26))
+        Spacer(Modifier.height(14.dp)); Text(L10n.text(R.string.msg_855a535263fa, sessions.size, durationLabel(sessions.sumOf { it.durationMs })), color = MaterialTheme.colorScheme.onSurfaceVariant)
+        if (book.tags.isNotBlank()) Text(L10n.text(R.string.msg_0d923807ec28, book.tags))
+        Spacer(Modifier.height(20.dp)); Primary(L10n.text(R.string.msg_15671a6e8f28), onClick = start)
+        if (book.document.isNotBlank()) TextButton(reader) { Icon(Icons.Outlined.MenuBook, null); Text(L10n.text(R.string.msg_229c8515ebe0)) }
+        Row { TextButton(edit) { Text(L10n.text(R.string.msg_fd9c61ac500e)) }; TextButton(addNote) { Text(L10n.text(R.string.msg_322c0e13ef4f)) }; TextButton(dismiss) { Text(L10n.text(R.string.msg_7d9eb7acb13e)) } }
     } }
 }
 @Composable fun NoteEditor(existing: JournalNote?, books: List<Book>, selected: String, dismiss: () -> Unit, save: (JournalNote) -> Unit, delete: (JournalNote) -> Unit) {
     var body by remember { mutableStateOf(existing?.body ?: "") }; var type by remember { mutableStateOf(existing?.type ?: "Idea") }
     var bookId by remember { mutableStateOf(existing?.bookId ?: selected) }; var location by remember { mutableStateOf(existing?.location ?: "") }; var tags by remember { mutableStateOf(existing?.tags ?: "") }
     var confirm by remember { mutableStateOf(false) }
-    EditorDialog(if (existing == null) "Keep a thought" else "Your journal entry", dismiss, {
+    EditorDialog(if (existing == null) L10n.text(R.string.msg_f11d03c46f7d) else L10n.text(R.string.msg_57430dd420b4), dismiss, {
         save((existing ?: JournalNote(body = body)).copy(body = body.trim(), type = type, bookId = bookId, location = location, tags = tags))
     }, body.isNotBlank()) {
         ChoiceRow(noteTypes, type) { type = it }
         BookPicker(books, bookId, { bookId = it }, allowNone = true)
-        Field(body, { body = it }, "What would you like to remember?", Modifier.heightIn(min = 160.dp), single = false)
-        Field(location, { location = it }, "Page, chapter or location"); Field(tags, { tags = it }, "Tags")
-        if (existing != null) TextButton({ confirm = true }) { Text("Delete note", color = MaterialTheme.colorScheme.error) }
+        Field(body, { body = it }, L10n.text(R.string.msg_7dfcd2ad89f3), Modifier.heightIn(min = 160.dp), single = false)
+        Field(location, { location = it }, L10n.text(R.string.msg_cc69c16fffd3)); Field(tags, { tags = it }, L10n.text(R.string.msg_1331275bc537))
+        if (existing != null) TextButton({ confirm = true }) { Text(L10n.text(R.string.msg_b80e4f44233e), color = MaterialTheme.colorScheme.error) }
     }
-    if (confirm) AlertDialog({ confirm = false }, title = { Text("Delete this note?") }, text = { Text("This permanently removes the note from your journal.") },
-        confirmButton = { TextButton({ existing?.let(delete); confirm = false }) { Text("Delete") } }, dismissButton = { TextButton({ confirm = false }) { Text("Keep note") } })
+    if (confirm) AlertDialog({ confirm = false }, title = { Text(L10n.text(R.string.msg_f8069d7e032f)) }, text = { Text(L10n.text(R.string.msg_812a76c55956)) },
+        confirmButton = { TextButton({ existing?.let(delete); confirm = false }) { Text(L10n.text(R.string.msg_e2d0a54968ea)) } }, dismissButton = { TextButton({ confirm = false }) { Text(L10n.text(R.string.msg_a6b004f1eb40)) } })
 }
 @Composable fun BookPicker(books: List<Book>, selected: String, change: (String) -> Unit, allowNone: Boolean = false) {
     var expanded by remember { mutableStateOf(false) }
     Box {
-        OutlinedButton({ expanded = true }, Modifier.fillMaxWidth().heightIn(min = 50.dp)) { Text(books.find { it.id == selected }?.title ?: if (allowNone) "General journal entry" else "Choose a book"); Icon(Icons.Outlined.ExpandMore, null) }
+        OutlinedButton({ expanded = true }, Modifier.fillMaxWidth().heightIn(min = 50.dp)) { Text(books.find { it.id == selected }?.title ?: if (allowNone) L10n.text(R.string.msg_f0bcd1169262) else L10n.text(R.string.msg_727d0c4004ca)); Icon(Icons.Outlined.ExpandMore, null) }
         DropdownMenu(expanded, { expanded = false }) {
-            if (allowNone) DropdownMenuItem({ Text("General journal entry") }, { change(""); expanded = false })
+            if (allowNone) DropdownMenuItem({ Text(L10n.text(R.string.msg_f0bcd1169262)) }, { change(""); expanded = false })
             books.forEach { book -> DropdownMenuItem({ Text(book.title) }, { change(book.id); expanded = false }) }
         }
     }
@@ -102,25 +105,25 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
     val day = runCatching { LocalDate.parse(date) }.getOrNull()
     val a = start.toIntOrNull() ?: -1; val b = end.toIntOrNull() ?: -1; val n = minutes.toIntOrNull() ?: 0
     val valid = book != null && n in 1..1440 && day != null && day <= LocalDate.now() && a >= 0 && b >= a && (book.totalPages == 0 || b <= book.totalPages)
-    EditorDialog("A little reading to log", dismiss, { if (valid) save(book!!, n, day!!, a, b, note, mood) }, valid) {
+    EditorDialog(L10n.text(R.string.msg_1fba14ace13f), dismiss, { if (valid) save(book!!, n, day!!, a, b, note, mood) }, valid) {
         BookPicker(books, bookId, { bookId = it })
         ChoiceRow(listOf("10", "20", "30", "45", "60"), minutes) { minutes = it }
-        Field(minutes, { minutes = it.filter(Char::isDigit).take(4) }, "Minutes read *")
-        Field(date, { date = it }, "Date (YYYY-MM-DD)")
+        Field(minutes, { minutes = it.filter(Char::isDigit).take(4) }, L10n.text(R.string.msg_e6e41bf9ceb5))
+        Field(date, { date = it }, L10n.text(R.string.msg_4a4059071cbb))
         if (book?.format != "Audiobook") Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Field(start, { start = it.filter(Char::isDigit).take(6) }, "Start page", Modifier.weight(1f))
-            Field(end, { end = it.filter(Char::isDigit).take(6) }, "End page", Modifier.weight(1f))
+            Field(start, { start = it.filter(Char::isDigit).take(6) }, L10n.text(R.string.msg_d0b3b9edd263), Modifier.weight(1f))
+            Field(end, { end = it.filter(Char::isDigit).take(6) }, L10n.text(R.string.msg_54dbe346e985), Modifier.weight(1f))
         }
-        Field(mood, { mood = it }, "Mood (optional)"); Field(note, { note = it }, "Session note (optional)", single = false)
-        if (!valid) Text("Choose a book, 1–1,440 minutes, a valid date and forward page progress.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
+        Field(mood, { mood = it }, L10n.text(R.string.msg_b7c33c45ba4b)); Field(note, { note = it }, L10n.text(R.string.msg_441e144511db), single = false)
+        if (!valid) Text(L10n.text(R.string.msg_b89ecb1f8374), color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
     }
 }
 
 @Composable fun PasswordPrompt(creating: Boolean, dismiss: () -> Unit, confirm: (String) -> Unit) {
     var password by remember { mutableStateOf("") }; var repeat by remember { mutableStateOf("") }
-    AlertDialog(dismiss, title={ Text(if (creating) "Protect your local backup" else "Unlock your backup") }, text={ Column(verticalArrangement=Arrangement.spacedBy(12.dp)) {
-        Text(if (creating) "Choose a passphrase with at least 12 characters. There is no password recovery. Books and document files are not included." else "Enter the passphrase used to create this backup. Records will be merged by ID.")
-        OutlinedTextField(password,{password=it.take(4096)},label={Text("Passphrase")},visualTransformation=PasswordVisualTransformation(),singleLine=true)
-        if(creating) OutlinedTextField(repeat,{repeat=it.take(4096)},label={Text("Repeat passphrase")},visualTransformation=PasswordVisualTransformation(),singleLine=true)
-    } }, confirmButton={ TextButton({confirm(password)},enabled=if(creating) password.length>=12&&password==repeat else password.isNotEmpty()){Text(if(creating)"Create backup" else "Restore")} },dismissButton={TextButton(dismiss){Text("Cancel")}})
+    AlertDialog(dismiss, title={ Text(if (creating) L10n.text(R.string.msg_cd21ce7d6cb0) else L10n.text(R.string.msg_c6b80c343399)) }, text={ Column(verticalArrangement=Arrangement.spacedBy(12.dp)) {
+        Text(if (creating) L10n.text(R.string.msg_985cf73de4ac) else L10n.text(R.string.msg_16e7080872a9))
+        OutlinedTextField(password,{password=it.take(4096)},label={Text(L10n.text(R.string.msg_e7611f0537df))},visualTransformation=PasswordVisualTransformation(),singleLine=true)
+        if(creating) OutlinedTextField(repeat,{repeat=it.take(4096)},label={Text(L10n.text(R.string.msg_124b5d15d171))},visualTransformation=PasswordVisualTransformation(),singleLine=true)
+    } }, confirmButton={ TextButton({confirm(password)},enabled=if(creating) password.length>=12&&password==repeat else password.isNotEmpty()){Text(if(creating)L10n.text(R.string.msg_85fb487f030a) else L10n.text(R.string.msg_a76e13b98392))} },dismissButton={TextButton(dismiss){Text(L10n.text(R.string.msg_19766ed6ccb2))}})
 }

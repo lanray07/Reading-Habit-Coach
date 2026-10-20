@@ -4,7 +4,7 @@
 
 A native, offline-first reading journal and book tracker for compatible Amazon Fire tablets and Android devices. Publisher: **O. Bankole** · [Support](mailto:banksmi@mail.com).
 
-This is **0.1.0 early access**. It is a working Android application, with important production requirements still outstanding. See [release status](docs/RELEASE-STATUS.md) before distribution.
+This is **0.2.0 early access**. It is a working Android application, with important production requirements still outstanding. See [release status](docs/RELEASE-STATUS.md) before distribution.
 
 ## Build and run
 
@@ -46,12 +46,14 @@ Settings offers JSON export/import, session CSV, journal Markdown, text and basi
 
 ```powershell
 node tools/build-website.mjs
-node tools/extract-strings.mjs
+node tools/extract-localization.mjs
 node tools/localize.mjs
 node tools/localize.mjs --strict
 ```
 
-The extraction tool produces a reviewable plan; `--apply` converts safe static Kotlin UI messages to Android string resources. Dynamic messages and plurals require explicit review. The strict localisation check intentionally fails until extraction and all translations are complete. An optional LibreTranslate-compatible HTTPS development provider can be configured with `TRANSLATE_URL` and `TRANSLATE_KEY` before `--translate`. No translation key belongs in the APK. Generated strings require human review.
+The Android app includes 400 resource messages in 21 locale configurations covering Amazon Appstore/Fire languages, plus Arabic and Hindi. Choose a language in onboarding or Settings, or follow the device. See [localization notes](docs/LOCALIZATION.md) for the exact language list, regional reuse, provenance and review limits. Thirteen Amazon listing drafts are in `store-listings`. Native-speaker review and translated screenshot/device visual checks remain pending.
+
+`tools/extract-localization.mjs` generates a candidate list for review. `tools/build-locales.mjs` and `tools/build-store-locales.mjs` regenerate checked-in resources/listings without network access. The strict check rejects missing messages, placeholder changes, leaked temporary markers and entries lacking independent-request or agent-review provenance. Optional development-only translation uses `python tools/translate-locales.py --fetch --independent`; it sends only public application copy, stops on rate limits and never runs in the APK.
 
 For website verification and editable screenshot/icon rendering, run `npm ci`, `npx playwright install chromium`, then `npm run site:serve` in one terminal and `npm run site:verify` in another. `npm run assets:render` uses actual captures in `screenshots/captures`. `CHROMIUM_PATH` can select an already-installed compatible Chromium executable. These are development-only dependencies; the website itself is buildless HTML/CSS.
 

@@ -28,11 +28,11 @@ Keep the ideas worth remembering. Save quotes, questions, reflections and summar
 
 Read compatible personal documents. The EPUB reader includes adjustable type, spacing, themes, chapters, saved positions and bookmarks. The PDF reader provides page navigation, zoom and bookmarks. This build does not include PDF text search, OCR or text highlighting, protected Kindle support or a Kindle library integration.
 
-Use text commands on every supported device. Where compatible system services are installed, speak supported English commands and listen to notes or supported EPUB text. Recognition may need an internet connection. Complete touch controls remain available.
+Use text commands on every supported device. Where compatible system services are installed, speak supported localized example commands and listen to notes or supported EPUB text. Recognition may need an internet connection. Complete touch controls remain available.
 
 Your library, sessions and journal are stored locally. No account is required. Optional online metadata search sends only your query to Open Library. Export JSON records, session CSV or journal notes through the document picker. Document files are not silently included in backups.
 
-Early-access build: English interface. Premium checkout, cloud backup and additional languages are not yet available. All current features are open to explore with no ads or configured in-app charges. Requires Android API 26 or later; device-specific voice capabilities vary.
+Early-access build: localized interface with 21 locale configurations. Native-speaker review remains pending. Premium checkout and cloud backup are not yet available. All current features are open to explore with no ads or configured in-app charges. Requires Android API 26 or later; device-specific voice capabilities vary.
 
 ## Product feature bullets
 
@@ -70,3 +70,7 @@ Recheck the Console before submission. This document does not confirm account-le
 ## Release notes
 
 0.1.0 early access introduces the offline library, reading sessions, private journal, flexible weekly goals, stored-data insights and personal document readers. Touch and text commands work without a speech-recognition engine. This is a test build with production billing, localisation and expanded document capabilities still pending.
+
+## Localized listing drafts
+
+Thirteen Amazon listing localizations are available as validated JSON files in `store-listings/`. They are machine-translated drafts requiring native-speaker review before submission. The Android locale set includes additional device languages; see `LOCALIZATION.md`.

@@ -1,0 +1,19 @@
+{
+  "title": "Reading Habit Coach – Buch-Tracker",
+  "shortDescription": "Verfolgen Sie Bücher, Lesezeit und Seiten. Führen Sie ein privates Tagebuch und sorgen Sie mit flexiblen Wochenzielen für Konsistenz. Kein Konto erforderlich.",
+  "intro": "Konsistenter lesen. Denken Sie daran, worauf es ankommt.",
+  "library": "Reading Habit Coach gibt Ihren Büchern, Lesemomenten und Ideen ein ruhiges, privates Zuhause. Organisieren Sie physische Bücher, Hörbücher, Bibliotheks-E-Books und kompatible persönliche Dokumente. Behalten Sie Regale, Tags, Fortschritte und persönliche Bewertungen.",
+  "sessions": "Starten, pausieren und beenden Sie eine Lesesitzung oder protokollieren Sie bereits durchgeführte Lesevorgänge. Zeichnen Sie Minuten und Seitenfortschritte auf. Die Hörbuchzeit wird niemals in erfundene Seitenzahlen umgerechnet.",
+  "goals": "Wählen Sie tägliche Leseminuten und wöchentliche Lesetage. Die bestätigte Konsistenz basiert auf abgeschlossenen Wochen und lässt Platz für freie Tage. Ihre Lesegeschichte bleibt bei Ihnen.",
+  "journal": "Speichern Sie Ideen, Zitate, Fragen und Überlegungen in einem durchsuchbaren Tagebuch. Verknüpfen Sie Notizen mit Büchern, fügen Sie Tags und Favoriten hinzu und exportieren Sie Ihre Notizen.",
+  "reader": "Lesen Sie kompatible persönliche PDFs und DRM-freie EPUBs. Zu den EPUB-Steuerelementen gehören Schriftgröße, Abstand, Themen, Kapitel, Lesezeichen, gespeicherte Positionen, Textsuche und Vorlesen von ausgewähltem Text oder Kapiteln. Die PDF-Anzeige umfasst Seiten, Zoom und Lesezeichen. PDF-Textsuche, OCR, Texthervorhebung und PDF-Vorlesen sind nicht verfügbar. Geschützte Kindle-Bücher und die Integration der Kindle-Bibliothek werden nicht unterstützt.",
+  "voice": "Verwenden Sie lokalisierte Beispielbefehle per Berührung oder Text. Spracherkennung und Offline-Vorlesen sind von installierten Systemdiensten abhängig. Für die Anerkennung ist möglicherweise das Internet erforderlich. Ihre Bücher und Notizen werden niemals automatisch übersetzt.",
+  "privacy": "Kein Konto oder Anzeigen. Bücher, Sitzungen und Notizen werden lokal gespeichert. Die optionale Metadatensuche sendet Ihre Anfrage an Open Library. Exportieren Sie JSON-Datensätze, Sitzungs-CSV oder Journalnotizen. Optional sind passwortgeschützte lokale Backups verfügbar. importierte Dokumentdateien sind ausgeschlossen.",
+  "preview": "Early-Access-Build. Premium-Checkout und Cloud-Backup sind nicht konfiguriert. Es werden keine In-App-Gebühren erhoben. Erfordert Android API 26 oder höher. Übersetzungen sind enthalten; Die Überprüfung durch Muttersprachler steht noch aus. Die Sprachfunktionen der Geräte variieren.",
+  "bullet1": "Organisieren Sie Ihre Bücher mit privaten Regalen, Fortschritt, Tags und persönlichen Bewertungen.",
+  "bullet2": "Verfolgen Sie Lesesitzungen und manuelle Protokolle mit gemessener Zeit und Seitenfortschritt.",
+  "bullet3": "Erstellen Sie eine Routine mit täglichen Minutenzielen und flexiblen wöchentlichen Lesetagszielen.",
+  "bullet4": "Halten Sie durchsuchbare Ideen, Zitate und Überlegungen mit Ihren Büchern verknüpft.",
+  "bullet5": "Lesen Sie unterstützte persönliche Dokumente und exportieren Sie private Lesedatensätze.",
+  "keywords": "Lese-Tracker, Buch-Tracker, Lesetagebuch, Buchnotizen, Lese-Timer, Leseziele, EPUB-Reader"
+}

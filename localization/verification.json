@@ -1,0 +1,32 @@
+{
+  "appVersion": "0.2.0",
+  "checkedAt": "2026-10-20T11:30:45.365289+00:00",
+  "build": {
+    "assembleDebug": "passed",
+    "assembleDebugAndroidTest": "passed",
+    "lintDebug": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 80
+  },
+  "unitTests": {
+    "tests": 19,
+    "failures": 0
+  },
+  "device": {
+    "model": "KFTRWI",
+    "api": 28,
+    "tests": 4,
+    "status": "passed",
+    "coverage": [
+      "all 21 configured locales and format arguments",
+      "persisted app-language selection",
+      "reading terminology",
+      "localized example and numeric commands",
+      "Arabic RTL and Arabic/Polish plural quantities",
+      "Room/JSON persistence",
+      "actual PDF/EPUB import"
+    ]
+  },
+  "localizedVisualAcceptance": "pending user unlock",
+  "nativeSpeakerReview": "pending"
+}

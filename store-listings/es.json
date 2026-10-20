@@ -1,0 +1,17 @@
+{
+  "locale": "es",
+  "publisher": "O. Bankole",
+  "support": "banksmi@mail.com",
+  "status": "draft-requires-native-review",
+  "title": "Reading Habit Coach – Rastreador de libros",
+  "shortDescription": "Seguimiento de libros, tiempo de lectura y páginas. Mantenga un diario privado y desarrolle coherencia con objetivos semanales flexibles. No se necesita cuenta.",
+  "longDescription": "Leer más consistentemente. Recuerda lo que importa.\n\nReading Habit Coach le da a sus libros, momentos de lectura e ideas un hogar tranquilo y privado. Organice libros físicos, audiolibros, libros electrónicos de biblioteca y documentos personales compatibles. Mantenga estantes, etiquetas, progreso y calificaciones personales.\n\nInicie, pausa y finalice una sesión de lectura, o registre la lectura que ya haya realizado. Registre los minutos y el progreso de la página. El tiempo del audiolibro nunca se convierte en recuentos de páginas inventados.\n\nElija minutos de lectura diarios y días de lectura semanales. La coherencia confirmada se basa en las semanas completadas, dejando espacio para los días libres. Tu historial de lectura permanece contigo.\n\nGuarde ideas, citas, preguntas y reflexiones en un diario con capacidad de búsqueda. Vincula notas a libros, agrega etiquetas y favoritos y exporta tus notas.\n\nLea archivos PDF personales compatibles y EPUB sin DRM. Los controles de EPUB incluyen tamaño de letra, espaciado, temas, capítulos, marcadores, posiciones guardadas, búsqueda de texto y lectura de texto seleccionado o capítulo en voz alta. La visualización de PDF incluye páginas, zoom y marcadores. La búsqueda de texto en PDF, el OCR, el resaltado de texto y la lectura en voz alta de PDF no están disponibles. Los libros Kindle protegidos y la integración de la biblioteca Kindle no son compatibles.\n\nUtilice comandos de ejemplo localizados mediante toque o texto. El reconocimiento de voz y la lectura en voz alta sin conexión dependen de los servicios del sistema instalados. El reconocimiento puede necesitar Internet. Sus libros y notas nunca se traducen automáticamente.\n\nSin cuenta ni anuncios. Los libros, sesiones y notas se almacenan localmente. La búsqueda de metadatos opcional envía su consulta a Open Library. Exporte registros JSON, CSV de sesión o notas de diario. Se encuentran disponibles copias de seguridad locales opcionales protegidas con contraseña; Se excluyen los archivos de documentos importados.\n\nCompilación de acceso temprano. El pago premium y la copia de seguridad en la nube no están configurados. No se cobran cargos dentro de la aplicación. Requiere Android API 26 o posterior. Se incluyen traducciones; La revisión del hablante nativo sigue pendiente. Las capacidades de voz del dispositivo varían.",
+  "bullets": [
+    "Organice sus libros con estantes privados, progreso, etiquetas y calificaciones personales.",
+    "Realice un seguimiento de las sesiones de lectura y los registros manuales con el tiempo medido y el progreso de la página.",
+    "Cree una rutina con minutos diarios y objetivos semanales flexibles de días de lectura.",
+    "Mantenga ideas, citas y reflexiones que puedan buscarse vinculadas a sus libros.",
+    "Lea documentos personales admitidos y exporte registros de lectura privados."
+  ],
+  "keywords": "rastreador de lectura, rastreador de libros, diario de lectura, notas de libros, cronómetro de lectura, objetivos de lectura, lector de EPUB"
+}

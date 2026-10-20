@@ -1,0 +1,17 @@
+{
+  "locale": "pl",
+  "publisher": "O. Bankole",
+  "support": "banksmi@mail.com",
+  "status": "draft-requires-native-review",
+  "title": "Reading Habit Coach – moduł śledzenia książek",
+  "shortDescription": "Śledź książki, czas czytania i strony. Prowadź prywatny dziennik i buduj spójność dzięki elastycznym celom tygodniowym. Nie potrzeba konta.",
+  "longDescription": "Czytaj więcej konsekwentnie. Pamiętaj o tym, co ważne.\n\nReading Habit Coach zapewni Twoim książkom, chwilom czytania i pomysłom spokojny, prywatny dom. Organizuj fizyczne książki, audiobooki, e-booki biblioteczne i kompatybilne dokumenty osobiste. Przechowuj półki, znaczniki, postępy i osobiste oceny.\n\nRozpocznij, wstrzymaj i zakończ sesję czytania lub zarejestruj już wykonane czytanie. Zapisuj minuty i postęp strony. Czasu książki audio nigdy nie przelicza się na wymyśloną liczbę stron.\n\nWybierz minuty codziennego czytania i cotygodniowe dni czytania. Potwierdzona spójność opiera się na ukończonych tygodniach, pozostawiając miejsce na dni wolne. Twoja historia czytania pozostaje z Tobą.\n\nZapisuj pomysły, cytaty, pytania i refleksje w dzienniku z możliwością przeszukiwania. Łącz notatki z książkami, dodawaj tagi i ulubione oraz eksportuj swoje notatki.\n\nCzytaj kompatybilne osobiste pliki PDF i EPUB bez DRM. Elementy sterujące EPUB obejmują rozmiar czcionki, odstępy, motywy, rozdziały, zakładki, zapisane pozycje, wyszukiwanie tekstu i czytanie na głos wybranego tekstu lub rozdziału. Przeglądanie plików PDF obejmuje strony, powiększanie i zakładki. Wyszukiwanie tekstu w formacie PDF, OCR, wyróżnianie tekstu i czytanie na głos plików PDF są niedostępne. Chronione książki Kindle i integracja bibliotek Kindle nie są obsługiwane.\n\nUżyj zlokalizowanych przykładowych poleceń za pomocą dotyku lub tekstu. Rozpoznawanie mowy i czytanie na głos w trybie offline zależą od zainstalowanych usług systemowych. Do rozpoznania może być potrzebny internet. Twoje książki i notatki nigdy nie są tłumaczone automatycznie.\n\nBrak konta i reklam. Książki, sesje i notatki są przechowywane lokalnie. Opcjonalne wyszukiwanie metadanych wysyła zapytanie do Open Library. Eksportuj rekordy JSON, sesje CSV lub notatki z dziennika. Dostępne są opcjonalne lokalne kopie zapasowe chronione hasłem; importowane pliki dokumentów są wykluczone.\n\nKompilacja z wczesnym dostępem. Płatność premium i kopia zapasowa w chmurze nie są skonfigurowane. Nie są pobierane żadne opłaty w aplikacji. Wymaga interfejsu API Androida 26 lub nowszego. Tłumaczenia są uwzględnione; weryfikacja przez native speakera pozostaje w toku. Możliwości głosowe urządzenia są różne.",
+  "bullets": [
+    "Uporządkuj swoje książki za pomocą prywatnych półek, postępów, tagów i osobistych ocen.",
+    "Śledź sesje odczytu i dzienniki ręczne ze zmierzonym czasem i postępem strony.",
+    "Stwórz rutynę z dziennymi minutowymi i elastycznymi tygodniowymi celami czytania.",
+    "Zachowaj możliwe do przeszukiwania pomysły, cytaty i refleksje powiązane ze swoimi książkami.",
+    "Czytaj obsługiwane dokumenty osobiste i eksportuj prywatne zapisy odczytu."
+  ],
+  "keywords": "moduł śledzenia czytania, moduł śledzenia książek, dziennik czytania, notatki z książek, licznik czasu czytania, cele czytania, czytnik EPUB"
+}

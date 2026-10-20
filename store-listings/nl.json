@@ -1,0 +1,17 @@
+{
+  "locale": "nl",
+  "publisher": "O. Bankole",
+  "support": "banksmi@mail.com",
+  "status": "draft-requires-native-review",
+  "title": "Reading Habit Coach – Boektracker",
+  "shortDescription": "Houd boeken, leestijd en pagina's bij. Houd een privédagboek bij en zorg voor consistentie met flexibele wekelijkse doelen. Geen account nodig.",
+  "longDescription": "Lees consequenter. Onthoud wat belangrijk is.\n\nReading Habit Coach geeft uw boeken, leesmomenten en ideeën een rustig, privé thuis. Organiseer fysieke boeken, audioboeken, e-boeken uit de bibliotheek en compatibele persoonlijke documenten. Houd planken, tags, voortgang en persoonlijke beoordelingen bij.\n\nEen leessessie starten, pauzeren en beëindigen, of een leessessie registreren die u al hebt gedaan. Registreer minuten en paginavoortgang. De tijd van het audioboek wordt nooit omgezet in verzonnen paginatellingen.\n\nKies dagelijkse leesminuten en wekelijkse leesdagen. De bevestigde consistentie is gebaseerd op voltooide weken, waarbij er ruimte overblijft voor vrije dagen. Je leesgeschiedenis blijft bij je.\n\nBewaar ideeën, citaten, vragen en reflecties in een doorzoekbaar dagboek. Koppel notities aan boeken, voeg tags en favorieten toe en exporteer uw notities.\n\nLees compatibele persoonlijke PDF's en DRM-vrije EPUB's. EPUB-bedieningselementen omvatten lettergrootte, spatiëring, thema's, hoofdstukken, bladwijzers, opgeslagen posities, zoeken naar tekst en voorlezen van geselecteerde tekst of hoofdstukken. PDF-weergave omvat pagina's, zoom en bladwijzers. PDF-tekst zoeken, OCR, tekstmarkeringen en PDF-voorlezen zijn niet beschikbaar. Beschermde Kindle-boeken en Kindle-bibliotheekintegratie worden niet ondersteund.\n\nGebruik gelokaliseerde voorbeeldopdrachten via aanraking of tekst. Spraakherkenning en offline voorlezen zijn afhankelijk van geïnstalleerde systeemservices. Herkenning heeft mogelijk internet nodig. Uw boeken en aantekeningen worden nooit automatisch vertaald.\n\nGeen account of advertenties. Boeken, sessies en notities worden lokaal opgeslagen. Optioneel zoeken naar metadata stuurt uw vraag naar Open Library. Exporteer JSON-records, sessie-CSV of dagboeknotities. Er zijn optionele met een wachtwoord beveiligde lokale back-ups beschikbaar; geïmporteerde documentbestanden zijn uitgesloten.\n\nBuild met vroege toegang. Premium afrekenen en cloudback-up zijn niet geconfigureerd. Er worden geen in-app-kosten in rekening gebracht. Vereist Android API 26 of hoger. Vertalingen zijn inbegrepen; De beoordeling door moedertaalsprekers is nog in behandeling. De spraakmogelijkheden van apparaten variëren.",
+  "bullets": [
+    "Organiseer uw boeken met privéplanken, voortgang, tags en persoonlijke beoordelingen.",
+    "Houd leessessies en handmatige logboeken bij met gemeten tijd en paginavoortgang.",
+    "Bouw een routine op met dagelijkse minuten en flexibele wekelijkse leesdagdoelen.",
+    "Houd doorzoekbare ideeën, citaten en reflecties gekoppeld aan uw boeken.",
+    "Ondersteunde persoonlijke documenten lezen en privéleesrecords exporteren."
+  ],
+  "keywords": "leestracker, boektracker, leesdagboek, boeknotities, leestimer, leesdoelen, EPUB-lezer"
+}

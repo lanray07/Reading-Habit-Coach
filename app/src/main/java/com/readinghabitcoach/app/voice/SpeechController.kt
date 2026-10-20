@@ -1,5 +1,8 @@
 package com.readinghabitcoach.app.voice
 
+import com.readinghabitcoach.app.i18n.L10n
+import com.readinghabitcoach.app.R
+
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -27,18 +30,18 @@ class SpeechController(private val context: Context) {
                 val selected = voices.firstOrNull { it.locale == Locale.getDefault() }
                     ?: voices.firstOrNull { it.locale.language == Locale.getDefault().language } ?: voices.firstOrNull()
                 if (selected != null) engine?.voice = selected
-                else { ready = false; error = "No offline text-to-speech voice is installed. Your private text will not be sent to a network voice." }
+                else { ready = false; error = L10n.text(R.string.msg_7377feb6ef3c) }
             }
-            else error = "No compatible text-to-speech engine is available on this device."
+            else error = L10n.text(R.string.msg_03964f1649f5)
         } }
         engine?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
             override fun onStart(id: String?) {}
             override fun onDone(id: String?) { handler.post { if (playing && id == "$generation:$index") { index++; next() } } }
-            @Deprecated("Legacy TTS callback") override fun onError(id: String?) { handler.post { playing = false; error = "This voice could not read the text." } }
+            @Deprecated("Legacy TTS callback") override fun onError(id: String?) { handler.post { playing = false; error = L10n.text(R.string.msg_2355d7c2a0e1) } }
         })
     }
     fun speak(text: String) {
-        if (!ready || engine?.voice?.isNetworkConnectionRequired != false) { error = "An installed offline voice is required to read private text aloud."; return }
+        if (!ready || engine?.voice?.isNetworkConnectionRequired != false) { error = L10n.text(R.string.msg_9fa7a63b49a1); return }
         stop(); chunks = text.split(Regex("(?<=[.!?])\\s+|\\n+")).flatMap { it.chunked(1500) }.filter { it.isNotBlank() }
         index = 0; playing = true; next()
     }
@@ -55,13 +58,13 @@ class VoiceInput(context: Context, private val result: (String) -> Unit, private
     val available = SpeechRecognizer.isRecognitionAvailable(context)
     private val recognizer = if (available) SpeechRecognizer.createSpeechRecognizer(context) else null
     init { recognizer?.setRecognitionListener(object : RecognitionListener {
-        override fun onReadyForSpeech(params: Bundle?) { state("Listening…") }
+        override fun onReadyForSpeech(params: Bundle?) { state(L10n.text(R.string.msg_bbb4106e8144)) }
         override fun onBeginningOfSpeech() {}
         override fun onRmsChanged(rmsdB: Float) {}
         override fun onBufferReceived(buffer: ByteArray?) {}
-        override fun onEndOfSpeech() { state("Processing your command…") }
-        override fun onError(error: Int) { state(when (error) { SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Microphone permission is needed to use voice."; SpeechRecognizer.ERROR_NO_MATCH, SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "No command recognised. Try again or type below."; else -> "Speech recognition is unavailable right now. Use the text command field." }) }
-        override fun onResults(results: Bundle?) { val text = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)?.firstOrNull(); state("Ready when you are."); text?.let(result) }
+        override fun onEndOfSpeech() { state(L10n.text(R.string.msg_a8a1b7fc0410)) }
+        override fun onError(error: Int) { state(when (error) { SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> L10n.text(R.string.msg_a0c78d42d4bb); SpeechRecognizer.ERROR_NO_MATCH, SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> L10n.text(R.string.msg_aea28b7fc15a); else -> L10n.text(R.string.msg_661f4a4b1085) }) }
+        override fun onResults(results: Bundle?) { val text = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)?.firstOrNull(); state(L10n.text(R.string.msg_182bf2ce919b)); text?.let(result) }
         override fun onPartialResults(partialResults: Bundle?) {}
         override fun onEvent(eventType: Int, params: Bundle?) {}
     }) }

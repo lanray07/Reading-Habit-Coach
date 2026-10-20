@@ -1,0 +1,17 @@
+{
+  "locale": "en-AU",
+  "publisher": "O. Bankole",
+  "support": "banksmi@mail.com",
+  "status": "draft-requires-native-review",
+  "title": "Reading Habit Coach – Book Tracker",
+  "shortDescription": "Track books, reading time and pages. Keep a private journal and build consistency with flexible weekly goals. No account needed.",
+  "longDescription": "Read more consistently. Remember what matters.\n\nReading Habit Coach gives your books, reading moments and ideas a calm, private home. Organise physical books, audiobooks, library ebooks and compatible personal documents. Keep shelves, tags, progress and personal ratings.\n\nStart, pause and finish a reading session, or log reading you have already done. Record minutes and page progress. Audiobook time is never converted into invented page counts.\n\nChoose daily reading minutes and weekly reading days. Confirmed consistency is based on completed weeks, leaving room for days off. Your reading history stays with you.\n\nSave ideas, quotes, questions and reflections in a searchable journal. Link notes to books, add tags and favourites, and export your notes.\n\nRead compatible personal PDFs and DRM-free EPUBs. EPUB controls include type size, spacing, themes, chapters, bookmarks, saved positions, text search and selected-text or chapter read-aloud. PDF viewing includes pages, zoom and bookmarks. PDF text search, OCR, text highlights and PDF read-aloud are unavailable. Protected Kindle books and Kindle library integration are unsupported.\n\nUse localized example commands through touch or text. Speech recognition and offline read-aloud depend on installed system services. Recognition may need the internet. Your books and notes are never automatically translated.\n\nNo account or ads. Books, sessions and notes are stored locally. Optional metadata search sends your query to Open Library. Export JSON records, session CSV or journal notes. Optional passphrase-protected local backups are available; imported document files are excluded.\n\nEarly-access build. Premium checkout and cloud backup are not configured. No in-app charges are taken. Requires Android API 26 or later. Translations are included; native-speaker review remains pending. Device voice capabilities vary.",
+  "bullets": [
+    "Organise your books with private shelves, progress, tags and personal ratings.",
+    "Track reading sessions and manual logs with measured time and page progress.",
+    "Build a routine with daily minute and flexible weekly reading-day goals.",
+    "Keep searchable ideas, quotes and reflections linked to your books.",
+    "Read supported personal documents and export private reading records."
+  ],
+  "keywords": "reading tracker, book tracker, reading journal, book notes, reading timer, reading goals, EPUB reader"
+}

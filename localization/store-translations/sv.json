@@ -1,0 +1,19 @@
+{
+  "title": "Reading Habit Coach – Bokspårare",
+  "shortDescription": "Spåra böcker, lästid och sidor. Håll en privat journal och bygg konsistens med flexibla veckomål. Inget konto behövs.",
+  "intro": "Läs mer konsekvent. Kom ihåg vad som är viktigt.",
+  "library": "Reading Habit Coach ger dina böcker, lässtunder och idéer ett lugnt, privat hem. Organisera fysiska böcker, ljudböcker, bibliotekets e-böcker och kompatibla personliga dokument. Behåll hyllor, taggar, framsteg och personliga betyg.",
+  "sessions": "Starta, pausa och avsluta en lässession eller logga läsning som du redan har gjort. Registrera minuter och sidförlopp. Ljudbokstid omvandlas aldrig till påhittade sidantal.",
+  "goals": "Välj dagliga läsminuter och veckovisa läsdagar. Bekräftad konsistens baseras på genomförda veckor, vilket ger plats för lediga dagar. Din läshistorik stannar hos dig.",
+  "journal": "Spara idéer, citat, frågor och reflektioner i en sökbar journal. Länka anteckningar till böcker, lägg till taggar och favoriter och exportera dina anteckningar.",
+  "reader": "Läs kompatibla personliga PDF-filer och DRM-fria EPUB-filer. EPUB-kontroller inkluderar typstorlek, avstånd, teman, kapitel, bokmärken, sparade positioner, textsökning och uppläsning av markerad text eller kapitel. PDF-visning inkluderar sidor, zoom och bokmärken. PDF-textsökning, OCR, textmarkeringar och högläsning av PDF är inte tillgängliga. Skyddade Kindle-böcker och Kindle-biblioteksintegration stöds inte.",
+  "voice": "Använd lokaliserade exempelkommandon genom beröring eller text. Taligenkänning och uppläsning offline beror på installerade systemtjänster. Erkännande kan behöva internet. Dina böcker och anteckningar översätts aldrig automatiskt.",
+  "privacy": "Inget konto eller annonser. Böcker, sessioner och anteckningar lagras lokalt. Valfri metadatasökning skickar din fråga till Open Library. Exportera JSON-poster, sessions-CSV eller journalanteckningar. Valfria lösenfrasskyddade lokala säkerhetskopior är tillgängliga; importerade dokumentfiler exkluderas.",
+  "preview": "Bygg för tidig åtkomst. Premiumutcheckning och molnsäkerhetskopiering är inte konfigurerade. Inga avgifter i appen tas ut. Kräver Android API 26 eller senare. Översättningar ingår; Granskning av infödda talare förblir under behandling. Enhetens röstkapacitet varierar.",
+  "bullet1": "Organisera dina böcker med privata hyllor, framsteg, taggar och personliga betyg.",
+  "bullet2": "Spåra lässessioner och manuella loggar med uppmätt tid och sidförlopp.",
+  "bullet3": "Bygg en rutin med dagliga minuter och flexibla veckomål för läsdagen.",
+  "bullet4": "Håll sökbara idéer, citat och reflektioner kopplade till dina böcker.",
+  "bullet5": "Läs personliga dokument som stöds och exportera privata läsposter.",
+  "keywords": "lässpårare, bokspårare, läsjournal, bokanteckningar, lästimer, läsmål, EPUB-läsare"
+}

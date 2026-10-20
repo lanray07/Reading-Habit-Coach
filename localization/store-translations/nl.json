@@ -1,0 +1,19 @@
+{
+  "title": "Reading Habit Coach – Boektracker",
+  "shortDescription": "Houd boeken, leestijd en pagina's bij. Houd een privédagboek bij en zorg voor consistentie met flexibele wekelijkse doelen. Geen account nodig.",
+  "intro": "Lees consequenter. Onthoud wat belangrijk is.",
+  "library": "Reading Habit Coach geeft uw boeken, leesmomenten en ideeën een rustig, privé thuis. Organiseer fysieke boeken, audioboeken, e-boeken uit de bibliotheek en compatibele persoonlijke documenten. Houd planken, tags, voortgang en persoonlijke beoordelingen bij.",
+  "sessions": "Een leessessie starten, pauzeren en beëindigen, of een leessessie registreren die u al hebt gedaan. Registreer minuten en paginavoortgang. De tijd van het audioboek wordt nooit omgezet in verzonnen paginatellingen.",
+  "goals": "Kies dagelijkse leesminuten en wekelijkse leesdagen. De bevestigde consistentie is gebaseerd op voltooide weken, waarbij er ruimte overblijft voor vrije dagen. Je leesgeschiedenis blijft bij je.",
+  "journal": "Bewaar ideeën, citaten, vragen en reflecties in een doorzoekbaar dagboek. Koppel notities aan boeken, voeg tags en favorieten toe en exporteer uw notities.",
+  "reader": "Lees compatibele persoonlijke PDF's en DRM-vrije EPUB's. EPUB-bedieningselementen omvatten lettergrootte, spatiëring, thema's, hoofdstukken, bladwijzers, opgeslagen posities, zoeken naar tekst en voorlezen van geselecteerde tekst of hoofdstukken. PDF-weergave omvat pagina's, zoom en bladwijzers. PDF-tekst zoeken, OCR, tekstmarkeringen en PDF-voorlezen zijn niet beschikbaar. Beschermde Kindle-boeken en Kindle-bibliotheekintegratie worden niet ondersteund.",
+  "voice": "Gebruik gelokaliseerde voorbeeldopdrachten via aanraking of tekst. Spraakherkenning en offline voorlezen zijn afhankelijk van geïnstalleerde systeemservices. Herkenning heeft mogelijk internet nodig. Uw boeken en aantekeningen worden nooit automatisch vertaald.",
+  "privacy": "Geen account of advertenties. Boeken, sessies en notities worden lokaal opgeslagen. Optioneel zoeken naar metadata stuurt uw vraag naar Open Library. Exporteer JSON-records, sessie-CSV of dagboeknotities. Er zijn optionele met een wachtwoord beveiligde lokale back-ups beschikbaar; geïmporteerde documentbestanden zijn uitgesloten.",
+  "preview": "Build met vroege toegang. Premium afrekenen en cloudback-up zijn niet geconfigureerd. Er worden geen in-app-kosten in rekening gebracht. Vereist Android API 26 of hoger. Vertalingen zijn inbegrepen; De beoordeling door moedertaalsprekers is nog in behandeling. De spraakmogelijkheden van apparaten variëren.",
+  "bullet1": "Organiseer uw boeken met privéplanken, voortgang, tags en persoonlijke beoordelingen.",
+  "bullet2": "Houd leessessies en handmatige logboeken bij met gemeten tijd en paginavoortgang.",
+  "bullet3": "Bouw een routine op met dagelijkse minuten en flexibele wekelijkse leesdagdoelen.",
+  "bullet4": "Houd doorzoekbare ideeën, citaten en reflecties gekoppeld aan uw boeken.",
+  "bullet5": "Ondersteunde persoonlijke documenten lezen en privéleesrecords exporteren.",
+  "keywords": "leestracker, boektracker, leesdagboek, boeknotities, leestimer, leesdoelen, EPUB-lezer"
+}

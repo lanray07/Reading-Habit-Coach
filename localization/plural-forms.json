@@ -1,0 +1,22 @@
+{
+  "ar": {
+    "book_count": {"zero":"لا كتب","one":"كتاب واحد","two":"كتابان","few":"%1$s كتب","many":"%1$s كتابًا","other":"%1$s كتاب"},
+    "minute_count": {"zero":"لا دقائق","one":"دقيقة واحدة","two":"دقيقتان","few":"%1$s دقائق","many":"%1$s دقيقة","other":"%1$s دقيقة"},
+    "page_count": {"zero":"لا صفحات","one":"صفحة واحدة","two":"صفحتان","few":"%1$s صفحات","many":"%1$s صفحة","other":"%1$s صفحة"},
+    "session_count": {"zero":"لا جلسات","one":"جلسة واحدة","two":"جلستان","few":"%1$s جلسات","many":"%1$s جلسة","other":"%1$s جلسة"},
+    "star_count": {"zero":"لا نجوم","one":"نجمة واحدة","two":"نجمتان","few":"%1$s نجوم","many":"%1$s نجمة","other":"%1$s نجمة"}
+  },
+  "pl": {
+    "book_count": {"one":"%1$s książka","few":"%1$s książki","many":"%1$s książek","other":"%1$s książki"},
+    "minute_count": {"one":"%1$s minuta","few":"%1$s minuty","many":"%1$s minut","other":"%1$s minuty"},
+    "page_count": {"one":"%1$s strona","few":"%1$s strony","many":"%1$s stron","other":"%1$s strony"},
+    "session_count": {"one":"%1$s sesja","few":"%1$s sesje","many":"%1$s sesji","other":"%1$s sesji"},
+    "star_count": {"one":"%1$s gwiazdka","few":"%1$s gwiazdki","many":"%1$s gwiazdek","other":"%1$s gwiazdki"}
+  },
+  "ja": {
+    "book_count":{"other":"%1$s冊"},"minute_count":{"other":"%1$s分"},"page_count":{"other":"%1$sページ"},"session_count":{"other":"%1$s回"},"star_count":{"other":"星%1$s個"}
+  },
+  "zh-CN": {
+    "book_count":{"other":"%1$s 本书"},"minute_count":{"other":"%1$s 分钟"},"page_count":{"other":"%1$s 页"},"session_count":{"other":"%1$s 次阅读"},"star_count":{"other":"%1$s 星"}
+  }
+}

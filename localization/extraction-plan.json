@@ -1,5 +1,5 @@
 {
-  "status": "review-plan-only",
+  "status": "historical-plan-superseded-by-messages.json-and-extracted-sites.json",
   "changes": [
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\HomeScreen.kt",
@@ -49,7 +49,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\HomeScreen.kt",
       "key": "ui_0e7ca8377c32",
-      "text": "Every reading day counts. There’s room for rest, too."
+      "text": "Every reading day counts. There\u2019s room for rest, too."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\HomeScreen.kt",
@@ -239,7 +239,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\ProgressScreens.kt",
       "key": "ui_62a839f61d51",
-      "text": "All reading · last 12 weeks"
+      "text": "All reading \u00b7 last 12 weeks"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\ProgressScreens.kt",
@@ -334,7 +334,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\Dialogs.kt",
       "key": "ui_b89ecb1f8374",
-      "text": "Choose a book, 1–1,440 minutes, a valid date and forward page progress."
+      "text": "Choose a book, 1\u20131,440 minutes, a valid date and forward page progress."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\Dialogs.kt",
@@ -454,12 +454,12 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
       "key": "ui_1d08ef339bb5",
-      "text": "Text size follows your device’s accessibility settings. The EPUB reader has separate type and spacing controls."
+      "text": "Text size follows your device\u2019s accessibility settings. The EPUB reader has separate type and spacing controls."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
       "key": "ui_5d310261fac0",
-      "text": "Language · English (UK)"
+      "text": "Language \u00b7 English (UK)"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
@@ -484,7 +484,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
       "key": "ui_fc375ab230aa",
-      "text": "Quiet hours: 22:00–07:00. Your device may delay reminders to save battery."
+      "text": "Quiet hours: 22:00\u201307:00. Your device may delay reminders to save battery."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
@@ -559,7 +559,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
       "key": "ui_2fe5ae4c798d",
-      "text": "Reading Habit Coach · Early access 0.1.0"
+      "text": "Reading Habit Coach \u00b7 Early access 0.1.0"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
@@ -619,7 +619,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
       "key": "ui_82e7e3de9420",
-      "text": "The microphone is used only after you tap. No recordings are saved by this app. Your device’s recognition service may use the internet."
+      "text": "The microphone is used only after you tap. No recordings are saved by this app. Your device\u2019s recognition service may use the internet."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
@@ -644,7 +644,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\PdfScreen.kt",
       "key": "ui_5d788b9d731c",
-      "text": "PDF image view · text selection, search and read-aloud are unavailable in this renderer."
+      "text": "PDF image view \u00b7 text selection, search and read-aloud are unavailable in this renderer."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\PdfScreen.kt",
@@ -659,7 +659,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
       "key": "ui_d1c57ed5bee6",
-      "text": "Opening your book…"
+      "text": "Opening your book\u2026"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
@@ -674,7 +674,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
       "key": "ui_8de4e50caae4",
-      "text": "A−"
+      "text": "A\u2212"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
@@ -749,7 +749,7 @@
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\MainActivity.kt",
       "key": "ui_dc8a3aad5ea9",
-      "text": "Checking the file and saving a private copy…"
+      "text": "Checking the file and saving a private copy\u2026"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\MainActivity.kt",

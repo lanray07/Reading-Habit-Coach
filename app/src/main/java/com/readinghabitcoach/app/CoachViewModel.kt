@@ -1,5 +1,8 @@
 package com.readinghabitcoach.app
 
+import com.readinghabitcoach.app.i18n.L10n
+import com.readinghabitcoach.app.R
+
 import android.app.Application
 import android.os.SystemClock
 import android.provider.Settings as AndroidSettings
@@ -53,10 +56,10 @@ class CoachViewModel(application: Application) : AndroidViewModel(application) {
         if (policies.value.isEmpty()) dao.savePolicy(GoalPolicy(week.toEpochDay(), days, paused))
         else dao.savePolicy(GoalPolicy(week.plusWeeks(1).toEpochDay(), days, paused))
         app.preferences.save(settings.value.copy(weeklyDays = days))
-        message.value = "Weekly goal saved. Changes apply from next week."
+        message.value = L10n.text(R.string.msg_a047752300e1)
     }
     fun start(book: Book) = viewModelScope.launch { timerLock.withLock {
-        if (dao.active().first() != null) { message.value = "Finish your current session before switching books."; return@withLock }
+        if (dao.active().first() != null) { message.value = L10n.text(R.string.msg_bdcc9e46bff5); return@withLock }
         dao.saveActive(ActiveSession(bookId = book.id, startedAt = System.currentTimeMillis(), startPage = book.page,
             anchorEpoch = System.currentTimeMillis(), anchorElapsed = SystemClock.elapsedRealtime(), bootCount = boot()))
         if (book.shelf != "Reading") dao.saveBook(book.copy(shelf = "Reading", finishedAt = null))
@@ -87,7 +90,7 @@ class CoachViewModel(application: Application) : AndroidViewModel(application) {
                 finishedAt = if (b.totalPages > 0 && endPage == b.totalPages) System.currentTimeMillis() else b.finishedAt))
             dao.clearActive()
         }
-        message.value = "Session saved. A little reading goes a long way."
+        message.value = L10n.text(R.string.msg_5638ac4ab325)
     } }
     fun log(book: Book, minutes: Int, date: LocalDate, startPage: Int, endPage: Int, note: String, mood: String) = viewModelScope.launch {
         val zone = ZoneId.systemDefault()
@@ -101,7 +104,7 @@ class CoachViewModel(application: Application) : AndroidViewModel(application) {
             // Backdated logs must not rewind a book's current progress.
             if (book.format != "Audiobook" && endPage > book.page) dao.saveBook(book.copy(page = endPage))
         }
-        message.value = "Reading session added."
+        message.value = L10n.text(R.string.msg_dda6c4da1fad)
     }
     fun daily(source: List<ReadingSession> = sessions.value): Map<LocalDate, Long> {
         val out = mutableMapOf<LocalDate, Long>()
@@ -125,6 +128,6 @@ class CoachViewModel(application: Application) : AndroidViewModel(application) {
         app.database.withTransaction { dao.clearActive(); dao.clearSessions(); dao.clearNotes(); dao.clearBooks(); dao.clearPolicies() }
         java.io.File(app.filesDir, "documents").deleteRecursively()
         app.preferences.clear()
-        message.value = "Your local reading data has been deleted."
+        message.value = L10n.text(R.string.msg_8647cbe24ed5)
     } }
 }

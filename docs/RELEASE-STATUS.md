@@ -1,4 +1,4 @@
-# Release status — 0.1.0 early access
+# Release status — 0.2.0 early access
 
 This is a working native Android early-access build, not a complete implementation of the supplied production brief. Do not submit it to the Amazon Appstore as production-ready.
 
@@ -7,6 +7,7 @@ Publisher: **O. Bankole**. Support: **banksmi@mail.com**.
 ## Available
 
 - Kotlin, Compose Material 3, Room, DataStore, coroutines and Flow; no account or Google Play Services dependency.
+- 400 Android resource messages in 21 locale configurations covering Amazon's documented Appstore/Fire language union, plus original Arabic and Hindi requirements. Onboarding/Settings language picker, persistent app-only selection, API 33+ system app-language integration, localized command examples, numbers/dates, quantity resources and RTL configuration. See `LOCALIZATION.md` for exact locale mapping and translation review status.
 - Manual book entry/editing, five shelves, formats, genres/tags, ISBN, personal ratings, search/filter, optional Open Library metadata lookup.
 - Start/pause/resume/finish sessions; process-persistent active session, manual logs, notes, page progress; audiobook minutes remain time.
 - Daily minute goals, weekly reading-day intentions, annual book goal; completed-calendar-week streaks, best streak, paused policies and next-week goal changes.
@@ -24,7 +25,7 @@ Publisher: **O. Bankole**. Support: **banksmi@mail.com**.
 ## Still required for the full brief / store release
 
 1. Real Amazon monthly/annual/lifetime product IDs, billing SDK integration, server receipt verification, signed entitlement cache, restore/expiry/cancellation/failure testing. This build takes no payment and grants no fabricated purchases or trials.
-2. Finish string extraction, supply an approved development-time translation provider and review all target locales, plural rules, RTL layouts, voice dictionaries, listing copy and screenshots. Current interface is English; localization/report.json reports gaps.
+2. Native-speaker review of the included translation drafts, expanded visual/font-scale/RTL acceptance tests, localized screenshots and marketing website translations. All 400 resource messages are populated; resource coverage and placeholder checks pass. Thirteen localized Amazon listing drafts are included. Agent review is not native-speaker approval.
 3. Full EPUB interaction/accessibility verification, automatic narration across chapters, narrated-position synchronisation and richer text-linked annotation UX. Chapter speech is bounded and starts at the current locator; it does not automatically advance chapters.
 4. Optional PDF text extraction/search/highlight engine; PDF OCR is not implemented or claimed.
 5. User cover-image picker, import of third-party metadata files, tested opt-in cloud provider (none currently configured) and independent cryptographic review of local backup handling.

@@ -2,6 +2,14 @@
 
 20 October 2026 · English UK · early-access 0.1.0
 
+## 0.2.0 localization update
+
+- 400 messages across 21 explicit Android locale configurations; complete key/placeholder checks and provenance checks pass. Thirteen Amazon listing drafts pass field completeness and length checks. Native-speaker review remains pending.
+- Final 0.2.0 debug build, instrumentation APK build, 19 JVM tests and Android lint pass locally (zero lint errors; 80 dependency/API/style warnings). No MissingTranslation, quantity or string-format warnings were reported.
+- Four tests passed on the connected **KFTRWI/API28** tablet: resource resolution and argument formatting for every configured locale, persistent app-language selection, expected reading terminology, localized example and numeric log commands, Arabic RTL and Arabic/Polish quantity cases, plus the two Room/JSON and PDF/EPUB tests.
+- Device UI interaction and visual screenshots of the final localized build remain pending PIN unlock. The tests above do not require bypassing or interacting with the lock screen. English screenshots below are earlier 0.1.0 evidence, not proof of localized 0.2.0 layout or visual acceptance.
+- Translation provenance distinguishes independent single-message requests and local agent review/corrections. Rate limiting stopped the online pass; it was not bypassed. All remaining source/catalog pairs were inspected locally and corrected, with digest records. No native-speaker approval is claimed.
+
 ## Build and automated checks
 
 - `:app:assembleDebug`, `:app:assembleDebugAndroidTest`, `:app:testDebugUnitTest` and `:app:lintDebug` passed locally. Lint retains informational dependency/version/style warnings; no lint errors are waived with a baseline.

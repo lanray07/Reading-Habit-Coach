@@ -1,6 +1,6 @@
 {
   "method": "Playwright Chromium fallback: IAB viewport screenshots were clipped and click dispatch timed out",
-  "checkedAt": "2026-10-20T10:35:26.613Z",
+  "checkedAt": "2026-10-20T11:25:09.999Z",
   "routes": 13,
   "checks": [
     {
