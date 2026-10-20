@@ -40,6 +40,7 @@ class EpubActivity : FragmentActivity() {
     private var navigator by mutableStateOf<EpubNavigatorFragment?>(null)
     private lateinit var speech: SpeechController
     private var currentBook: Book? = null
+    private var narrationJob: Job? = null
     private val dao get() = (application as CoachApplication).database.dao()
     override fun onCreate(savedInstanceState: Bundle?) {
         supportFragmentManager.fragmentFactory = EpubNavigatorFragment.createDummyFactory()
@@ -120,7 +121,7 @@ class EpubActivity : FragmentActivity() {
                 IconButton({ speech.stop() }) { Icon(Icons.Outlined.Stop, "Stop read-aloud") }
                 TextButton({ rate = if (rate < 1.5f) rate + .25f else .75f; speech.rate(rate) }) { Text("${rate}×") }
             }
-            TextButton({ lifecycleScope.launch {
+            TextButton({ narrationJob?.cancel(); narrationJob = lifecycleScope.launch {
                 val start = navigator?.currentLocator?.value
                 if (start == null) return@launch
                 val text = withContext(Dispatchers.IO) {
@@ -178,6 +179,6 @@ class EpubActivity : FragmentActivity() {
     private fun applyPreferences(font: Double, spacing: Double, dark: Boolean) { navigator?.submitPreferences(EpubPreferences(fontSize = font, lineHeight = spacing, theme = if (dark) Theme.DARK else Theme.SEPIA, publisherStyles = false)) }
     private fun saveBookmark(book: Book) { navigator?.currentLocator?.value?.let { loc -> lifecycleScope.launch { dao.saveNote(JournalNote(bookId = book.id, type = "Reflection", body = "Bookmark · ${loc.title ?: book.title}", location = loc.toJSON().toString())); toast("Bookmark saved.") } } }
     private fun toast(text: String) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-    override fun onStop() { super.onStop(); speech.pause() }
+    override fun onStop() { super.onStop(); narrationJob?.cancel(); speech.pause() }
     override fun onDestroy() { speech.close(); publication?.close(); super.onDestroy() }
 }

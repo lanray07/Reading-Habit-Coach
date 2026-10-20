@@ -25,7 +25,7 @@ data class ReadingSession(
     val endedAt: Long, val durationMs: Long, val startPage: Int = 0, val endPage: Int = 0,
     val zone: String, val note: String = "", val mood: String = "",
     // Only active time intervals; paused time never contributes to day totals.
-    val spans: String = ""
+    val spans: String = "", @ColumnInfo(defaultValue = "0") val manual: Boolean = false
 )
 
 @Entity(tableName = "notes", indices = [Index("bookId")])
@@ -70,5 +70,5 @@ interface CoachDao {
     @Query("DELETE FROM goal_policies") suspend fun clearPolicies()
 }
 
-@Database(entities = [Book::class, ReadingSession::class, JournalNote::class, GoalPolicy::class, ActiveSession::class], version = 1, exportSchema = true)
+@Database(entities = [Book::class, ReadingSession::class, JournalNote::class, GoalPolicy::class, ActiveSession::class], version = 2, exportSchema = true)
 abstract class CoachDatabase : RoomDatabase() { abstract fun dao(): CoachDao }

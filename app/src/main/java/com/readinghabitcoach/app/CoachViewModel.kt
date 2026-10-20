@@ -90,22 +90,27 @@ class CoachViewModel(application: Application) : AndroidViewModel(application) {
         message.value = "Session saved. A little reading goes a long way."
     } }
     fun log(book: Book, minutes: Int, date: LocalDate, startPage: Int, endPage: Int, note: String, mood: String) = viewModelScope.launch {
-        val now = ZonedDateTime.now()
-        val end = if (date == now.toLocalDate()) now.toInstant().toEpochMilli() else date.atTime(20, 0).atZone(now.zone).toInstant().toEpochMilli()
+        val zone = ZoneId.systemDefault()
+        val dayMarker = date.atStartOfDay(zone).toInstant().toEpochMilli()
         val duration = minutes.toLong() * 60_000
         app.database.withTransaction {
-            dao.saveSession(ReadingSession(bookId = book.id, startedAt = end - duration, endedAt = end,
+            dao.saveSession(ReadingSession(bookId = book.id, startedAt = dayMarker, endedAt = dayMarker,
                 durationMs = duration, startPage = if (book.format == "Audiobook") 0 else startPage,
-                endPage = if (book.format == "Audiobook") 0 else endPage, zone = now.zone.id, note = note, mood = mood,
-                spans = encodeSpans(listOf(Span(end - duration, end)))))
+                endPage = if (book.format == "Audiobook") 0 else endPage, zone = zone.id, note = note, mood = mood,
+                spans = "", manual = true))
             // Backdated logs must not rewind a book's current progress.
             if (book.format != "Audiobook" && endPage > book.page) dao.saveBook(book.copy(page = endPage))
         }
         message.value = "Reading session added."
     }
-    fun daily(): Map<LocalDate, Long> {
+    fun daily(source: List<ReadingSession> = sessions.value): Map<LocalDate, Long> {
         val out = mutableMapOf<LocalDate, Long>()
-        sessions.value.forEach { s ->
+        source.forEach { s ->
+            if (s.manual) {
+                val day = Instant.ofEpochMilli(s.startedAt).atZone(ZoneId.of(s.zone)).toLocalDate()
+                out[day] = (out[day] ?: 0) + s.durationMs
+                return@forEach
+            }
             val spans = decodeSpans(s.spans).ifEmpty { listOf(Span(s.startedAt, s.startedAt + s.durationMs)) }
             dailyDurations(spans, runCatching { ZoneId.of(s.zone) }.getOrDefault(ZoneId.systemDefault())).forEach { (day, value) ->
                 out[day] = (out[day] ?: 0) + value

@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.readinghabitcoach.app.R
 import com.readinghabitcoach.app.data.Settings
 import com.readinghabitcoach.app.voice.SpeechController
+import androidx.compose.ui.platform.LocalContext
 
 @Composable fun Onboarding(settings: Settings, complete: (Settings) -> Unit) {
     var minutes by remember { mutableFloatStateOf(settings.minutes.toFloat()) }; var days by remember { mutableFloatStateOf(settings.weeklyDays.toFloat()) }
@@ -35,6 +36,8 @@ import com.readinghabitcoach.app.voice.SpeechController
 }
 @Composable fun SettingsScreen(settings: Settings, save: (Settings) -> Unit, export: (String) -> Unit, importBackup: () -> Unit, importEncrypted: () -> Unit, reminder: (Boolean, Int) -> Unit, delete: () -> Unit) {
     var confirm by remember { mutableStateOf(false) }; var deleteText by remember { mutableStateOf("") }
+    var licences by remember { mutableStateOf(false) }
+    val context = LocalContext.current
     var hour by remember(settings.reminderHour) { mutableFloatStateOf(settings.reminderHour.toFloat()) }
     Column(verticalArrangement = Arrangement.spacedBy(20.dp)) {
         PageTitle("Make yourself at home", "Your reading companion, your preferences.")
@@ -66,8 +69,13 @@ import com.readinghabitcoach.app.voice.SpeechController
             Text("A thoughtful companion", style = MaterialTheme.typography.headlineSmall)
             Text("Reading Habit Coach · Early access 0.1.0")
             Spacer(Modifier.height(12.dp)); Text("Premium purchases are not configured in this build. All available features are open to explore. No payment is taken.", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            TextButton({ licences = true }) { Text("Open source licences") }
         }
     }
+    if (licences) AlertDialog({ licences = false }, title = { Text("Open source licences") }, text = {
+        val text = remember { listOf("Readium-BSD-3-Clause.txt", "Apache-2.0.txt").joinToString("\n\n") { name -> context.assets.open("licenses/$name").bufferedReader().use { it.readText() } } }
+        Column(Modifier.heightIn(max = 450.dp).verticalScroll(rememberScrollState())) { Text(text, style = MaterialTheme.typography.bodySmall) }
+    }, confirmButton = { TextButton({ licences = false }) { Text("Close") } })
     if (confirm) AlertDialog({ confirm = false }, title = { Text("Delete your reading data?") }, text = { Column { Text("This permanently removes books, sessions, goals, notes and imported documents from this device. Export a backup first if you want to keep your journal. Type DELETE to continue."); Field(deleteText, { deleteText = it }, "Confirmation") } },
         confirmButton = { TextButton({ delete(); confirm = false }, enabled = deleteText == "DELETE") { Text("Delete all data") } }, dismissButton = { TextButton({ confirm = false }) { Text("Keep my data") } })
 }

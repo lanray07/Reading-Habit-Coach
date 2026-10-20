@@ -34,10 +34,12 @@ class DeviceWorkflowTest {
             assertEquals(600000L,dao.sessions().first().single().durationMs)
             assertEquals("A private thought",dao.notes().first().single().body)
             assertEquals(2,dao.policies().first().size)
+            dao.saveSession(ReadingSession(bookId=book.id,startedAt=1000,endedAt=1000,durationMs=1_200_000,zone="UTC",manual=true))
             val transfer=DataTransfer(context,db)
             val backup=transfer.json(); assertFalse(backup.contains("document\"")); assertTrue(backup.contains("\"documentsIncluded\": false"))
             val f=File(context.cacheDir,"roundtrip.json").apply { writeText(backup) }
             transfer.importJson(Uri.fromFile(f)); assertEquals(1,dao.books().first().size); assertEquals(1,dao.notes().first().size)
+            assertTrue(dao.sessions().first().any { it.manual && it.durationMs==1_200_000L }); assertTrue(transfer.csv().contains("manual"))
             f.delete()
         } finally { db.close() }
     }
@@ -51,7 +53,7 @@ class DeviceWorkflowTest {
         DocumentImporter(context).file(imported).delete(); file.delete()
         val epub=File(context.cacheDir,"original-test.epub")
         instrumentation.context.assets.open("a-quiet-reading-moment.epub").use { input -> epub.outputStream().use { input.copyTo(it) } }
-        val book=DocumentImporter(context).import(Uri.fromFile(epub)); assertEquals("EPUB",book.format)
+        val book=DocumentImporter(context).import(Uri.fromFile(epub)); assertEquals("EPUB",book.format); assertEquals("A Quiet Reading Moment",book.title); assertEquals("Reading Habit Coach",book.author)
         DocumentImporter(context).file(book).delete(); epub.delete()
     }
     /** Physical-device UI testing requires an explicit runner flag to avoid accidental disruption. */
@@ -67,28 +69,37 @@ class DeviceWorkflowTest {
         context.startActivity(Intent(context,MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
         assertTrue(device.wait(Until.hasObject(By.text("A little reading,\na little more you.")),20000))
         val output=File(context.getExternalFilesDir(null),"qa-screenshots").apply { mkdirs() }
-        device.takeScreenshot(File(output,"01-home.png"))
+        fun capture(name: String) { device.waitForIdle(); android.os.SystemClock.sleep(400); device.takeScreenshot(File(output,name)) }
+        capture("01-home.png")
         fun clickText(text: String) { val target=device.wait(Until.findObject(By.text(java.util.regex.Pattern.compile("\\s*"+java.util.regex.Pattern.quote(text)+"\\s*"))),10000); assertNotNull("Missing $text",target); target.click(); device.waitForIdle() }
         clickText("Start Reading Session")
         assertTrue(device.wait(Until.hasObject(By.text("Pause")),10000))
         delay(1200)
-        device.takeScreenshot(File(output,"03-session.png"))
+        capture("03-session.png")
         clickText("Pause"); assertTrue(device.wait(Until.hasObject(By.text("Resume")),10000))
         clickText("Resume"); clickText("Finish session")
         assertTrue(device.wait(Until.hasObject(By.text("A few pages further")),10000))
         clickText("Save")
         assertTrue(device.wait(Until.hasObject(By.text("Start Reading Session")),10000))
         assertTrue(dao.allSessions().any { it.bookId==book.id })
-        clickText("Library"); device.takeScreenshot(File(output,"02-library.png"))
+        clickText("Library"); capture("02-library.png")
         clickText("Journal"); clickText("Capture a thought")
-        val fields=device.findObjects(By.clazz("android.widget.EditText"))
-        assertTrue(fields.isNotEmpty()); fields[0].text="A little reading can change the shape of a day."
+        val fields=device.wait(Until.findObjects(By.clazz("android.widget.EditText")),10000)
+        if(fields.isNullOrEmpty()) { device.takeScreenshot(File(output,"failure-journal.png")); device.dumpWindowHierarchy(File(output,"failure-journal.xml")) }
+        assertTrue("Journal dialog exposes an editable field", !fields.isNullOrEmpty())
+        var entered=false
+        repeat(5) { if(!entered) try {
+            device.waitForIdle()
+            device.findObject(UiSelector().className("android.widget.EditText").instance(0)).setText("A little reading can change the shape of a day.")
+            entered=true
+        } catch (_: StaleObjectException) { device.waitForIdle() } }
+        assertTrue("The note body accepts text",entered)
         clickText("Save")
         assertTrue(device.wait(Until.hasObject(By.text("A little reading can change the shape of a day.")),10000))
-        device.takeScreenshot(File(output,"05-journal.png"))
-        clickText("Goals"); device.takeScreenshot(File(output,"04-goals.png"))
-        clickText("Insights"); device.takeScreenshot(File(output,"08-insights.png"))
-        clickText("Voice"); device.takeScreenshot(File(output,"07-voice.png"))
+        capture("05-journal.png")
+        clickText("Goals"); capture("04-goals.png")
+        clickText("Insights"); capture("08-insights.png")
+        clickText("Voice"); capture("07-voice.png")
         clickText("Home")
         // Verify Room persisted through an activity recreation.
         context.startActivity(Intent(context,MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
@@ -101,7 +112,7 @@ class DeviceWorkflowTest {
         context.startActivity(Intent(context,EpubActivity::class.java).putExtra("bookId",imported.id).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
         assertTrue(device.wait(Until.hasObject(By.desc("Chapters")),20000))
         assertTrue(device.wait(Until.hasObject(By.text("Making room")),20000))
-        device.takeScreenshot(File(output,"06-reader.png"))
+        capture("06-reader.png")
         device.findObject(By.desc("Add bookmark")).click()
         delay(500)
         assertTrue(dao.allNotes().any { it.bookId==imported.id && it.location.startsWith("{") })
@@ -111,7 +122,13 @@ class DeviceWorkflowTest {
         clickText("Search")
         assertTrue(device.wait(Until.hasObject(By.textContains("matches")),20000))
         clickText("Close")
-        device.takeScreenshot(File(output,"06-reader.png"))
+        capture("06-reader.png")
+        device.findObject(By.desc("Close reader")).click()
+        device.setOrientationNatural()
+        try {
+            device.waitForIdle(); capture("portrait-home.png")
+            clickText("Library"); capture("portrait-library.png")
+        } finally { device.unfreezeRotation() }
         epub.delete()
     }
 }

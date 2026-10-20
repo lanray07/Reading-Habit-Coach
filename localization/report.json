@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T10:21:56.974Z",
+  "generatedAt": "2026-10-20T10:41:40.443Z",
   "provider": "LibreTranslate-compatible HTTPS endpoint",
   "humanReviewRequired": true,
   "locales": {
@@ -557,257 +557,272 @@
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 22,
+      "line": 23,
       "text": "A reading life,\\nat your own pace."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 23,
+      "line": 24,
       "text": "Read more consistently. Remember what matters."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 24,
+      "line": 25,
       "text": "A private home for your books, reading moments and ideas. No account needed."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 26,
+      "line": 27,
       "text": "Start with a small intention"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 27,
+      "line": 28,
       "text": "${minutes.toInt()} minutes a day"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 28,
+      "line": 29,
       "text": "${days.toInt()} reading days a week"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 29,
+      "line": 30,
       "text": "Suggestions, never obligations. Change these whenever you like."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 31,
+      "line": 32,
       "text": "Make room for reading"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 32,
+      "line": 33,
       "text": "Skip for now"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 33,
+      "line": 34,
       "text": "Reminders are optional and can be enabled in Settings."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 40,
+      "line": 43,
       "text": "Make yourself at home"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 42,
+      "line": 45,
       "text": "Reading comfort"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 43,
+      "line": 46,
       "text": "Dark appearance"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 44,
+      "line": 47,
       "text": "Text size follows your device’s accessibility settings. The EPUB reader has separate type and spacing controls."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 45,
+      "line": 48,
       "text": "Language · English (UK)"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 46,
+      "line": 49,
       "text": "Other translations are in preparation."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 49,
+      "line": 52,
       "text": "A gentle reminder"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 50,
+      "line": 53,
       "text": "Daily reading reminder"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 51,
+      "line": 54,
       "text": "Around ${hour.toInt()}:00"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 52,
+      "line": 55,
       "text": "Save reminder time"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 53,
+      "line": 56,
       "text": "Quiet hours: 22:00–07:00. Your device may delay reminders to save battery."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 56,
+      "line": 59,
       "text": "Your data stays yours"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 57,
+      "line": 60,
       "text": "Books, sessions, goals and notes are stored on this device. Backups contain metadata and notes, never your imported document files."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 58,
+      "line": 61,
       "text": "Export JSON"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 58,
+      "line": 61,
       "text": "Sessions CSV"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 58,
+      "line": 61,
       "text": "Journal Markdown"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 59,
+      "line": 62,
       "text": "Journal text"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 59,
+      "line": 62,
       "text": "Journal PDF"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 59,
+      "line": 62,
       "text": "Import JSON"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 60,
+      "line": 63,
       "text": "Encrypted backup"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 60,
+      "line": 63,
       "text": "Restore encrypted"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 61,
+      "line": 64,
       "text": "Encrypted local backups use a passphrase you choose. Keep it safe: it cannot be recovered. Imported document files are excluded."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 62,
+      "line": 65,
       "text": "Import merges entries by ID. No reading history is uploaded for analytics. Optional book search sends only your search terms to Open Library. Device speech services may process voice online."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 63,
+      "line": 66,
       "text": "Delete all local data"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 66,
+      "line": 69,
       "text": "A thoughtful companion"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 67,
+      "line": 70,
       "text": "Reading Habit Coach · Early access 0.1.0"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 68,
+      "line": 71,
       "text": "Premium purchases are not configured in this build. All available features are open to explore. No payment is taken."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 71,
+      "line": 72,
+      "text": "Open source licences"
+    },
+    {
+      "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
+      "line": 75,
+      "text": "Open source licences"
+    },
+    {
+      "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
+      "line": 78,
+      "text": "Close"
+    },
+    {
+      "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
+      "line": 79,
       "text": "Delete your reading data?"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 71,
+      "line": 79,
       "text": "This permanently removes books, sessions, goals, notes and imported documents from this device. Export a backup first if you want to keep your journal. Type DELETE to continue."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 72,
+      "line": 80,
       "text": "Delete all data"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 72,
+      "line": 80,
       "text": "Keep my data"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 77,
+      "line": 85,
       "text": "A little help, hands free"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 82,
+      "line": 90,
       "text": "Speak a command"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 84,
+      "line": 92,
       "text": "Run command"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 85,
+      "line": 93,
       "text": "The microphone is used only after you tap. No recordings are saved by this app. Your device’s recognition service may use the internet."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 88,
+      "line": 96,
       "text": "A few things you can say"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 94,
+      "line": 102,
       "text": "Listen at your pace"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 97,
+      "line": 105,
       "text": "Speaking rate · ${"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 98,
+      "line": 106,
       "text": "Choose an installed offline voice"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 99,
+      "line": 107,
       "text": "${v.locale.displayName} · ${v.name}"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\ui\\SettingsScreens.kt",
-      "line": 101,
+      "line": 109,
       "text": "Pause resumes from the beginning of the current sentence. Availability depends on installed device services."
     },
     {
@@ -832,87 +847,87 @@
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 48,
+      "line": 49,
       "text": "Opening your book…"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 64,
+      "line": 65,
       "text": "Unable to open this document"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 64,
+      "line": 65,
       "text": "Back to library"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 105,
+      "line": 106,
       "text": "A−"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 106,
+      "line": 107,
       "text": "A+"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 107,
+      "line": 108,
       "text": "Spacing"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 115,
+      "line": 116,
       "text": "Keep selection"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 118,
+      "line": 119,
       "text": "Read selection"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 121,
+      "line": 122,
       "text": "${rate}×"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 137,
+      "line": 138,
       "text": "Read this chapter aloud (up to 50,000 characters)"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 139,
+      "line": 140,
       "text": "Chapters"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 143,
+      "line": 144,
       "text": "Close"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 144,
+      "line": 145,
       "text": "Your places"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 147,
+      "line": 148,
       "text": "Bookmarks and saved selections will appear here."
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 150,
+      "line": 151,
       "text": "Close"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 151,
+      "line": 152,
       "text": "Search this book"
     },
     {
       "file": "app\\src\\main\\java\\com\\readinghabitcoach\\app\\reader\\EpubActivity.kt",
-      "line": 176,
+      "line": 177,
       "text": "Close"
     },
     {

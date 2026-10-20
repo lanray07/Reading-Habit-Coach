@@ -45,7 +45,7 @@ import java.time.format.DateTimeFormatter
                 Icon(Icons.Outlined.MenuBook, null, tint = MaterialTheme.colorScheme.primary); Spacer(Modifier.width(16.dp))
                 Column(Modifier.weight(1f)) {
                     Text(books.find { it.id == s.bookId }?.title ?: "Book", style = MaterialTheme.typography.titleMedium)
-                    Text(Instant.ofEpochMilli(s.startedAt).atZone(ZoneId.of(s.zone)).format(DateTimeFormatter.ofPattern("d MMM yyyy · HH:mm")), color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
+                    Text(Instant.ofEpochMilli(s.startedAt).atZone(ZoneId.of(s.zone)).format(DateTimeFormatter.ofPattern(if (s.manual) "d MMM yyyy" else "d MMM yyyy · HH:mm")) + if (s.manual) " · Manually logged" else "", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
                     if (s.note.isNotBlank()) Text(s.note, style = MaterialTheme.typography.bodyMedium)
                 }
                 Column(horizontalAlignment = Alignment.End) { Text(durationLabel(s.durationMs), color = MaterialTheme.colorScheme.primary); if (s.endPage > s.startPage) Text("${s.endPage - s.startPage} pages", style = MaterialTheme.typography.bodyMedium) }

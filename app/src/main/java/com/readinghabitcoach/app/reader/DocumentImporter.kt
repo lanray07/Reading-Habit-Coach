@@ -11,6 +11,11 @@ import java.io.*
 import java.util.zip.ZipFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.readium.r2.shared.util.asset.AssetRetriever
+import org.readium.r2.shared.util.http.DefaultHttpClient
+import org.readium.r2.shared.util.toUrl
+import org.readium.r2.streamer.PublicationOpener
+import org.readium.r2.streamer.parser.DefaultPublicationParser
 
 object ArchiveGuard {
     const val MAX_FILE = 100L * 1024 * 1024
@@ -52,8 +57,18 @@ class DocumentImporter(private val context: Context) {
             } } ?: error("The document could not be opened.")
             val pages = if (pdf) ParcelFileDescriptor.open(destination, ParcelFileDescriptor.MODE_READ_ONLY).use { fd -> PdfRenderer(fd).use { it.pageCount } }
                 else { ArchiveGuard.validateEpub(destination); 0 }
-            Book(title = name.substringBeforeLast('.'), format = if (pdf) "PDF" else "EPUB", shelf = "Reading", totalPages = pages, document = destination.name, colour = name.hashCode())
+            val metadata = if (pdf) null else epubMetadata(destination)
+            Book(title = metadata?.first?.takeIf { it.isNotBlank() } ?: name.substringBeforeLast('.'), author = metadata?.second.orEmpty(), format = if (pdf) "PDF" else "EPUB", shelf = "Reading", totalPages = pages, document = destination.name, colour = name.hashCode())
         } catch (e: Exception) { destination.delete(); throw e }
+    }
+    private suspend fun epubMetadata(file: File): Pair<String, String> {
+        val http = DefaultHttpClient()
+        val assets = AssetRetriever(context.contentResolver, http)
+        val asset = assets.retrieve(file.toUrl()).getOrNull() ?: error("The EPUB could not be read.")
+        val publication = PublicationOpener(DefaultPublicationParser(context, httpClient = http, assetRetriever = assets, pdfFactory = null))
+            .open(asset, allowUserInteraction = false).getOrNull() ?: error("The EPUB metadata or reading order is malformed.")
+        return try { publication.metadata.title.orEmpty() to publication.metadata.authors.joinToString(", ") { it.name } }
+            finally { publication.close() }
     }
     fun file(book: Book): File {
         require(book.document.matches(Regex("[a-fA-F0-9-]+\\.(pdf|epub)"))) { "The document reference is invalid." }

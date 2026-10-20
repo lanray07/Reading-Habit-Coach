@@ -82,7 +82,7 @@ import java.time.format.DateTimeFormatter
             Text("The rhythm of your week", style = MaterialTheme.typography.headlineSmall)
             Spacer(Modifier.height(24.dp))
             val week = com.readinghabitcoach.app.domain.weekOf(today)
-            val filteredDaily = selected.flatMap { s -> com.readinghabitcoach.app.domain.dailyDurations(com.readinghabitcoach.app.domain.decodeSpans(s.spans), ZoneId.of(s.zone)).entries.map { it.key to it.value } }.groupBy({ it.first }, { it.second }).mapValues { it.value.sum() }
+            val filteredDaily = vm.daily(selected)
             val peak = (0L..6).maxOf { filteredDaily[week.plusDays(it)] ?: 0 }.coerceAtLeast(60_000)
             Row(Modifier.fillMaxWidth().height(150.dp), horizontalArrangement = Arrangement.SpaceAround, verticalAlignment = Alignment.Bottom) {
                 (0L..6).forEach { i -> val date = week.plusDays(i); val ms = filteredDaily[date] ?: 0

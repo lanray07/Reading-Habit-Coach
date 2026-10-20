@@ -9,3 +9,4 @@ screenshots/*.xml
 screenshots/*.log
 .release/
 .qa/
+node_modules/

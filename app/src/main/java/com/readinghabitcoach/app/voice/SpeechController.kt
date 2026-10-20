@@ -17,6 +17,7 @@ class SpeechController(private val context: Context) {
     var error by mutableStateOf(""); private set
     private val handler = Handler(Looper.getMainLooper())
     private var chunks: List<String> = emptyList(); private var index = 0
+    private var generation = 0L
     private var engine: TextToSpeech? = null
     init {
         engine = TextToSpeech(context) { status -> handler.post {
@@ -26,7 +27,7 @@ class SpeechController(private val context: Context) {
         } }
         engine?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
             override fun onStart(id: String?) {}
-            override fun onDone(id: String?) { handler.post { if (playing && id == index.toString()) { index++; next() } } }
+            override fun onDone(id: String?) { handler.post { if (playing && id == "$generation:$index") { index++; next() } } }
             @Deprecated("Legacy TTS callback") override fun onError(id: String?) { handler.post { playing = false; error = "This voice could not read the text." } }
         })
     }
@@ -35,10 +36,10 @@ class SpeechController(private val context: Context) {
         stop(); chunks = text.split(Regex("(?<=[.!?])\\s+|\\n+")).flatMap { it.chunked(1500) }.filter { it.isNotBlank() }
         index = 0; playing = true; next()
     }
-    private fun next() { if (index >= chunks.size) { playing = false; return }; engine?.speak(chunks[index], TextToSpeech.QUEUE_FLUSH, null, index.toString()) }
-    fun pause() { playing = false; engine?.stop() }
+    private fun next() { if (index >= chunks.size) { playing = false; return }; engine?.speak(chunks[index], TextToSpeech.QUEUE_FLUSH, null, "$generation:$index") }
+    fun pause() { playing = false; generation++; engine?.stop() }
     fun resume() { if (ready && index < chunks.size) { playing = true; next() } }
-    fun stop() { playing = false; engine?.stop(); chunks = emptyList(); index = 0 }
+    fun stop() { playing = false; generation++; engine?.stop(); chunks = emptyList(); index = 0 }
     fun rate(value: Float) { rate = value; engine?.setSpeechRate(value) }
     fun voice(voice: Voice) { engine?.voice = voice }
     fun close() { stop(); engine?.shutdown(); engine = null }

@@ -46,11 +46,14 @@ Settings offers JSON export/import, session CSV, journal Markdown, text and basi
 
 ```powershell
 node tools/build-website.mjs
+node tools/extract-strings.mjs
 node tools/localize.mjs
 node tools/localize.mjs --strict
 ```
 
-The strict localisation check intentionally fails until extraction and all translations are complete. An optional LibreTranslate-compatible HTTPS development provider can be configured with `TRANSLATE_URL` and `TRANSLATE_KEY` before `--translate`. No translation key belongs in the APK. Generated strings require human review.
+The extraction tool produces a reviewable plan; `--apply` converts safe static Kotlin UI messages to Android string resources. Dynamic messages and plurals require explicit review. The strict localisation check intentionally fails until extraction and all translations are complete. An optional LibreTranslate-compatible HTTPS development provider can be configured with `TRANSLATE_URL` and `TRANSLATE_KEY` before `--translate`. No translation key belongs in the APK. Generated strings require human review.
+
+For website verification and editable screenshot/icon rendering, run `npm ci`, `npx playwright install chromium`, then `npm run site:serve` in one terminal and `npm run site:verify` in another. `npm run assets:render` uses actual captures in `screenshots/captures`. `CHROMIUM_PATH` can select an already-installed compatible Chromium executable. These are development-only dependencies; the website itself is buildless HTML/CSS.
 
 The companion website is designed for [GitHub Pages](https://lanray07.github.io/Reading-Habit-Coach/). Publication status is recorded in the verification report. [GitHub issues](https://github.com/lanray07/Reading-Habit-Coach/issues) and [email](mailto:banksmi@mail.com) are the support routes.
 

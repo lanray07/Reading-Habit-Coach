@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-const {chromium}=await import('../.qa/node_modules/playwright/index.mjs');
+const {chromium}=await import('playwright');
 const base=process.env.WEBSITE_URL||'http://127.0.0.1:5183';
 const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
 const report=[];
