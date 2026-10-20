@@ -1,0 +1,22 @@
+{
+  "versionName": "0.2.0",
+  "versionCode": 2,
+  "applicationId": "com.readinghabitcoach.app",
+  "variant": "release",
+  "debuggable": false,
+  "minSdk": 26,
+  "targetSdk": 35,
+  "file": ".release/production/reading-habit-coach-0.2.0-release.apk",
+  "bytes": 22044821,
+  "sha256": "8489c5675e4e97b6b065dff3ac8748c027f1254649bd91a41af82bc34f5a89ed",
+  "signerCertificateSha256": "d2046aa7577b043312aaff7266ebf9abb1c0b475547b1c0d6a3a9fa9dbbd471d",
+  "signerSubject": "CN=O. Bankole, OU=Reading Habit Coach",
+  "signerAlgorithm": "RSA-4096",
+  "signatureSchemesVerified": ["v2", "v3"],
+  "zipAlignmentVerified": "4-byte entries, 16 KB uncompressed native library alignment",
+  "releaseUnitTests": {"tests": 19, "failures": 0, "errors": 0},
+  "releaseLint": {"errors": 0, "warnings": 80},
+  "minified": false,
+  "status": "production-signed early-access build; not a claim that the full original brief or release review is complete",
+  "physicalDeviceReleaseInstall": "not attempted: existing debug-signed installation and its user data were preserved"
+}

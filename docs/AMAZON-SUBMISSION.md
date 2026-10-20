@@ -15,12 +15,15 @@ The Amazon Console draft was created and saved, not submitted or published.
 - Description, bullets and keywords use concrete feature names, with no ranking promises, fake ratings or unimplemented feature claims.
 - Privacy questionnaire saved for review: optional in-app search and system speech transfer to third parties for app functionality; publisher does not collect those records. No account creation. Privacy/deletion instructions point to the published privacy page.
 - Content questionnaire marked Complete: no bundled violence, drugs, nudity, sex, intolerance, profanity, advertisements, gambling or location detection. Academic attenuation: no. User-generated content: yes (local notes and imported documents); there is no user-to-user messaging.
-- Practical testing instructions were filled; no credentials are required.
+- Practical testing instructions are prepared in `AMAZON-REVIEWER-INSTRUCTIONS.txt`; no credentials are required. Amazon's final review form did not retain that optional field across navigation, so it must be populated again at final submission.
+- Production-signed `reading-habit-coach-0.2.0-release.apk` (version code 2) uploaded and accepted by Amazon validation. See `PRODUCTION-APK.json` for its verified digest, signer and local checks. Amazon binary ID: `MV3T8AZKQZCR5`.
+- Amazon DRM wrapping: No (free, offline app with no active purchases or DRM SDK).
+- Device selection saved: 12 compatible Fire tablets; zero Fire TV or automotive devices. The selected tablet list includes the tested Fire HD 10 (2021) KFTRWI. The Console excludes older unsupported models and newer Alexa/Amazon Kids tablets. This build targets API 35; Fire OS 16 requires target API 36, so support for those newer devices needs a future target-36 build and platform testing. Source: https://developer.amazon.com/docs/app-submission/device-filtering-and-compatibility.html#fire-os-and-android-api-levels
 
 ## Remaining before release
 
 1. Publisher approved ages 16 and above; Amazon target audience saved as 16–17 and 18+ (younger groups excluded).
-2. No APK uploaded: the available preview APK is debug-signed. Produce and review the publisher-owned production-signed release and then choose compatible Fire tablets. This is not a Fire TV app.
+2. APK upload and compatible tablet targeting are complete. Publisher-owned key custody and portable backup instructions are in `RELEASE-SIGNING.md`; the private key/password were not uploaded or committed. No production APK was installed over the existing debug-signed tablet app.
 3. Export-compliance certification is unchecked and requires the publisher's legal determination/confirmation, including encryption controls.
 4. Complete the production gaps in `RELEASE-STATUS.md`, including privacy/legal review and native/localized visual QA. Localized screenshots and optional promotional artwork/video are not uploaded.
 

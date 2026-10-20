@@ -4,6 +4,8 @@ local.properties
 **/build/
 *.jks
 *.keystore
+*.p12
+*.dpapi
 .idea/
 screenshots/*.xml
 screenshots/*.log

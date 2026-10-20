@@ -1,0 +1,9 @@
+Native Android early-access release 0.2.0; no account, ads, payment or subscription flow. Minimum Android API 26. Test on Fire tablets using touch in portrait or landscape.
+
+Library: add a book manually or import a personal DRM-free PDF/EPUB. Original sample: https://github.com/lanray07/Reading-Habit-Coach/blob/main/samples/a-quiet-reading-moment.epub
+
+Sessions: start/pause/resume/finish or add a manual reading log. Goals: daily minutes, weekly reading days, annual books. Journal: create/search/edit/delete notes and export. Settings: choose an app language, enable optional reminders, export/merge records, or delete local data.
+
+EPUB supports font/spacing/theme, chapters, bookmarks, search and selected/chapter speech; PDF supports page navigation/zoom/bookmarks without PDF text search, OCR or speech. Installed speech services and offline voices are needed for optional voice functions; touch/text fallback remains available. Metadata lookup optionally uses Open Library. Protected Kindle books and Kindle account integration are unsupported.
+
+Screenshots show actual English 0.1.0 early-access UI with original sample data; English assets are the fallback. Translations are present; native-speaker review remains pending.
