@@ -68,7 +68,7 @@ class DeviceWorkflowTest {
         assertTrue(device.wait(Until.hasObject(By.text("A little reading,\na little more you.")),20000))
         val output=File(context.getExternalFilesDir(null),"qa-screenshots").apply { mkdirs() }
         device.takeScreenshot(File(output,"01-home.png"))
-        fun clickText(text: String) { val target=device.wait(Until.findObject(By.text(text)),10000); assertNotNull("Missing $text",target); target.click(); device.waitForIdle() }
+        fun clickText(text: String) { val target=device.wait(Until.findObject(By.text(java.util.regex.Pattern.compile("\\s*"+java.util.regex.Pattern.quote(text)+"\\s*"))),10000); assertNotNull("Missing $text",target); target.click(); device.waitForIdle() }
         clickText("Start Reading Session")
         assertTrue(device.wait(Until.hasObject(By.text("Pause")),10000))
         delay(1200)
