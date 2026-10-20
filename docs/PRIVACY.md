@@ -8,7 +8,7 @@ Reading Habit Coach stores book records, reading sessions, notes, highlights, go
 
 Optional metadata search sends only your entered search terms to Open Library over HTTPS. Use manual entry if you prefer not to use this online service. Readium renders compatible imported EPUBs; Android PdfRenderer renders PDF pages. The app does not access Kindle purchases or bypass DRM.
 
-The microphone is used only after you request a spoken command. This app does not save microphone recordings or listen continuously. Installed Android speech-recognition services may process audio online under their own policies. Text-to-speech availability, installed voices and network requirements depend on the chosen engine. Touch controls and typed commands remain available without microphone access.
+The microphone is used only after you request a spoken command. This app does not save microphone recordings or listen continuously. Installed Android speech-recognition services may process audio online under their own policies. For reading private text aloud, the app only selects voices the installed engine declares to be offline; network-required voices are not enabled. Actual engine behaviour is governed by its provider. Touch controls and typed commands remain available without microphone access.
 
 Notification permission is optional. Reading reminders use approximate operating-system scheduling and fixed quiet hours. Notification settings can be changed in the app and in device settings.
 

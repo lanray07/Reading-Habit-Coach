@@ -10,3 +10,4 @@ screenshots/*.log
 .release/
 .qa/
 node_modules/
+screenshots/current-fire.png

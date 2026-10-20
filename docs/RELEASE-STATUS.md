@@ -33,6 +33,7 @@ Publisher: **O. Bankole**. Support: **banksmi@mail.com**.
 8. Signed production APK, release signing ownership, shrinker validation, dependency/security review and Fire OS/device compatibility matrix. Current minimum SDK is 26, excluding older Fire OS 5/API22 devices.
 9. Name/trademark availability, final legal/privacy review and Amazon Console submission metadata review. No name reservation or store acceptance is implied.
 10. Phone variants and translations of the eight English Fire-tablet screenshot compositions. Raw 1920×1200 Fire captures and editable marketing compositions are included. Screenshots are based on original QA sample content; only implemented features may be advertised.
+11. The complete illustration pack requested in the master brief: distinct empty-library, notes, achievements, goals, Premium, promotional banner and light/dark artwork variants. Current original assets are the book-mark icon family and reading-moment illustration used in the app and website.
 
 ## External references checked 20 October 2026
 

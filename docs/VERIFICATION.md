@@ -7,6 +7,7 @@
 - `:app:assembleDebug`, `:app:assembleDebugAndroidTest`, `:app:testDebugUnitTest` and `:app:lintDebug` passed locally. Lint retains informational dependency/version/style warnings; no lint errors are waived with a baseline.
 - Nineteen JVM tests cover midnight/DST/timezone allocation, excluded paused time, completed-week streaks, goal changes, pauses, backdating, week starts, structured voice commands, archive path/encryption/compression checks and authenticated backup encryption.
 - Three instrumentation tests passed on **Amazon KFTRWI, API 28**: Room/JSON merge, actual PDF/EPUB import and rendering preflight, and the complete interactive workflow.
+- Manual logs carry an explicit source flag and date-only semantics, preserved by JSON/CSV export and restore. A Room 1→2 migration adds the flag without deleting existing records. Timer sessions retain measured active intervals.
 - Interactive path: start → pause → resume → finish/save → library → create/save journal entry → goals → insights → voice fallback → reopen → EPUB render → bookmark → search → portrait home/library. Test-owned original sample content is used. The test runner requires `allowPhysicalUi=true` before interacting with a physical device.
 - Real microphone recognition, installed TTS voices/audio output, notification delivery timing, encrypted export through a third-party document provider, TalkBack, large font scales and RTL remain acceptance-test work.
 
@@ -42,3 +43,5 @@ GitHub Pages is public at <https://lanray07.github.io/Reading-Habit-Coach/> and 
 ## Remaining release scope
 
 See `RELEASE-STATUS.md`. Passing these checks does not establish full production readiness, completed localisation, configured Amazon billing, trademark availability or store acceptance.
+
+Temporary emulator files remain in the ignored `.qa` directory and the task-created AVD location because automatic approval review rejected cleanup with “blocked by policy”. They are excluded from the repository and release assets.

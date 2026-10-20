@@ -22,7 +22,13 @@ class SpeechController(private val context: Context) {
     init {
         engine = TextToSpeech(context) { status -> handler.post {
             ready = status == TextToSpeech.SUCCESS
-            if (ready) { engine?.language = Locale.getDefault(); voices = engine?.voices?.filter { !it.isNetworkConnectionRequired }?.sortedBy { it.name } ?: emptyList() }
+            if (ready) {
+                voices = engine?.voices?.filter { !it.isNetworkConnectionRequired }?.sortedBy { it.name } ?: emptyList()
+                val selected = voices.firstOrNull { it.locale == Locale.getDefault() }
+                    ?: voices.firstOrNull { it.locale.language == Locale.getDefault().language } ?: voices.firstOrNull()
+                if (selected != null) engine?.voice = selected
+                else { ready = false; error = "No offline text-to-speech voice is installed. Your private text will not be sent to a network voice." }
+            }
             else error = "No compatible text-to-speech engine is available on this device."
         } }
         engine?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
@@ -32,7 +38,7 @@ class SpeechController(private val context: Context) {
         })
     }
     fun speak(text: String) {
-        if (!ready) { error = "Read-aloud is unavailable. You can still read all text on screen."; return }
+        if (!ready || engine?.voice?.isNetworkConnectionRequired != false) { error = "An installed offline voice is required to read private text aloud."; return }
         stop(); chunks = text.split(Regex("(?<=[.!?])\\s+|\\n+")).flatMap { it.chunked(1500) }.filter { it.isNotBlank() }
         index = 0; playing = true; next()
     }
@@ -41,7 +47,7 @@ class SpeechController(private val context: Context) {
     fun resume() { if (ready && index < chunks.size) { playing = true; next() } }
     fun stop() { playing = false; generation++; engine?.stop(); chunks = emptyList(); index = 0 }
     fun rate(value: Float) { rate = value; engine?.setSpeechRate(value) }
-    fun voice(voice: Voice) { engine?.voice = voice }
+    fun voice(voice: Voice) { if (!voice.isNetworkConnectionRequired) engine?.voice = voice }
     fun close() { stop(); engine?.shutdown(); engine = null }
 }
 
