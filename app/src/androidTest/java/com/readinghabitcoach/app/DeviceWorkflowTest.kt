@@ -2,6 +2,10 @@ package com.readinghabitcoach.app
 
 import android.content.Intent
 import android.net.Uri
+import android.app.Activity
+import android.app.Application
+import android.os.Bundle
+import android.view.WindowManager
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -21,6 +25,20 @@ import java.time.*
 class DeviceWorkflowTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
     private val context get() = instrumentation.targetContext
+    private val keepAwake = object : Application.ActivityLifecycleCallbacks {
+        override fun onActivityCreated(activity: Activity, state: Bundle?) { activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) }
+        override fun onActivityStarted(activity: Activity) {}
+        override fun onActivityResumed(activity: Activity) {}
+        override fun onActivityPaused(activity: Activity) {}
+        override fun onActivityStopped(activity: Activity) {}
+        override fun onActivitySaveInstanceState(activity: Activity, state: Bundle) {}
+        override fun onActivityDestroyed(activity: Activity) {}
+    }
+    @Before fun prepareTestWindow() {
+        (context.applicationContext as Application).registerActivityLifecycleCallbacks(keepAwake)
+        if (InstrumentationRegistry.getArguments().getString("allowPhysicalUi")=="true") UiDevice.getInstance(instrumentation).wakeUp()
+    }
+    @After fun releaseTestWindow() { (context.applicationContext as Application).unregisterActivityLifecycleCallbacks(keepAwake) }
     @Test fun roomStoresLibrarySessionsNotesAndGoalHistory() = runBlocking<Unit> {
         val db = Room.inMemoryDatabaseBuilder(context, CoachDatabase::class.java).build()
         try {
