@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lanray07.github.io/Reading-Habit-Coach/sitemap.xml

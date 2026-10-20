@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "locale": "en-GB",
+  "status": "verification captures and editable compositions; not a complete store submission set",
+  "specificationsSource": "https://developer.amazon.com/docs/app-submission/appstore-details.html#images-and-videos",
+  "verifiedOn": "2026-10-20",
+  "allowedTabletLandscapeSizes": [[800,480],[1024,600],[1280,720],[1280,800],[1920,1080],[1920,1200],[2560,1600]],
+  "minimumCount": 3,
+  "maximumCount": 10,
+  "captures": [
+    {"id":"01","headline":"Reading Tracker & Book Journal","support":"Keep your books, goals and reading progress together.","screen":"Home"},
+    {"id":"02","headline":"Personal Book Library","support":"Organise physical books, ebooks and audiobooks.","screen":"Library"},
+    {"id":"03","headline":"Daily Reading Habit Tracker","support":"Track reading time, pages and sessions.","screen":"Sessions"},
+    {"id":"04","headline":"Reading Goals & Weekly Consistency","support":"Build consistency with flexible reading goals.","screen":"Goals"},
+    {"id":"05","headline":"Book Notes & Highlights","support":"Capture ideas, quotes and reflections.","screen":"Journal"},
+    {"id":"06","headline":"Personal PDF & EPUB Reader","support":"Read compatible DRM-free documents.","screen":"Reader"},
+    {"id":"07","headline":"Voice Reading Companion","support":"Use supported commands and installed speech services.","screen":"Voice","caveat":"Speech recognition depends on device services."},
+    {"id":"08","headline":"Reading Statistics & Progress","support":"Discover your reading patterns over time.","screen":"Insights"}
+  ],
+  "phoneVariants":"pending actual narrow-viewport capture",
+  "otherLocales":"pending translated UI and human review"
+}
