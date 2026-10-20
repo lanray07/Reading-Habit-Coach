@@ -13,7 +13,8 @@ const pluralForms=JSON.parse(fs.readFileSync('localization/plural-forms.json'));
 function xml(values,locale){
  let text='<?xml version="1.0" encoding="utf-8"?>\n<resources>\n    <string name="app_name" translatable="false">Reading Habit Coach</string>\n';
  for(const [id,value]of Object.entries(values))text+=`    <string name="${id}">${escape(value)}</string>\n`;
- const categories=new Intl.PluralRules(locale).resolvedOptions().pluralCategories;
+ const available=new Intl.PluralRules(locale).resolvedOptions().pluralCategories;
+ const categories=['zero','one','two','few','many','other'].filter(category=>available.includes(category));
  for(const [name,[one,other]]of Object.entries(quantities)){
  text+=`    <plurals name="${name}">\n`;
  for(const category of categories)text+=`        <item quantity="${category}">${escape(pluralForms[locale]?.[name]?.[category]||values[key(category==='one'?one:other)])}</item>\n`;
